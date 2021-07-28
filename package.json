@@ -1,0 +1,35 @@
+{
+  "name": "Sisegupe",
+  "version": "1.0.0",
+  "description": "Repositório do Back-end do Sistema de Egressos da UPE.",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "tsc",
+    "build": "tsc",
+    "start": "ts-node src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MurylloEx/Sisegupe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MurylloEx/Sisegupe/issues"
+  },
+  "homepage": "https://github.com/MurylloEx/Sisegupe#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^12.20.17",
+    "husky": "^7.0.1",
+    "prettier": "^2.3.2",
+    "pretty-quick": "^3.1.1",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5"
+  }
+}
