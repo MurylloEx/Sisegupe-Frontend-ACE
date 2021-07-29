@@ -1,6 +1,7 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, BeforeInsert, BeforeUpdate } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, BeforeInsert, BeforeUpdate, OneToMany } from 'typeorm';
 import { IsDefined, MaxLength, MinLength, validateOrReject } from 'class-validator';
 import { ProjectStage } from './ProjectStage.Enum';
+import { Document } from './Document.Model';
 
 @Entity()
 export class Project extends BaseEntity {
@@ -15,13 +16,13 @@ export class Project extends BaseEntity {
   public title?: string;
 
   @IsDefined()
-  @MaxLength(2048, { message: 'Máximo de 2048 caracteres permitidos no resumo!' })
+  @MaxLength(2048, { message: 'Máximo de 2048 caracteres permitidos no resumo.' })
   @Column()
   public summary?: string;
 
   @IsDefined()
   @MaxLength(64, { message: 'Máximo de 64 caracteres permitidos no nome do autor.' })
-  @MinLength(4, { message: 'Mínimo de 4 caracteres permitidos no nome do autor' })
+  @MinLength(4, { message: 'Mínimo de 4 caracteres permitidos no nome do autor.' })
   @Column()
   public authorName?: string;
 
@@ -32,8 +33,8 @@ export class Project extends BaseEntity {
   public authorCpf?: string;
 
   @IsDefined()
-  @MaxLength(64, { message: 'Máximo de 64 caracteres permitidos no nome do autor.' })
-  @MinLength(4, { message: 'Mínimo de 4 caracteres permitidos no nome do autor' })
+  @MaxLength(64, { message: 'Máximo de 64 caracteres permitidos no nome do orientador.' })
+  @MinLength(4, { message: 'Mínimo de 4 caracteres permitidos no nome do orientador.' })
   @Column()
   public advisorName?: string;
 
@@ -43,8 +44,8 @@ export class Project extends BaseEntity {
   @Column()
   public advisorCpf?: string;
 
-  @Column()
-  public fileDocuments?: string;
+  @OneToMany(type => Document, document => document.project, { cascade: true })
+  public fileDocuments?: Document[];
 
   @IsDefined()
   @MaxLength(32, { message: 'Tamanho máximo do campo curso é de 32 caracteres.' })
@@ -52,6 +53,7 @@ export class Project extends BaseEntity {
   @Column()
   public courseName?: string;
 
+  @IsDefined()
   @Column()
   public projectStage?: ProjectStage;
 

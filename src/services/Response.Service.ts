@@ -11,8 +11,8 @@ export function ok(data?: any){
   return buildResponse(200, data);
 }
 
-export function notFound(){
-  return buildResponse(404);
+export function notFound(data?: any){
+  return buildResponse(404, data);
 }
 
 export function badRequest(data?: any){
