@@ -16,7 +16,6 @@ export class Document extends BaseEntity {
   @Column()
   public fileName?: string;
 
-  @IsDefined()
   @Column()
   public isUsing?: boolean = false;
 

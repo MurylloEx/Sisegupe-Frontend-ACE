@@ -2,11 +2,11 @@
   "name": "sisegupe",
   "version": "0.0.1",
   "description": "Repositório do Back-end do Sistema de Egressos da UPE.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "prepare": "tsc",
     "build": "tsc",
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/app.ts"
   },
   "repository": {
     "type": "git",

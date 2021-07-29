@@ -11,7 +11,7 @@ export async function getProjectById(id: string){
 }
 
 export async function createProject(project: Project){
-  return await getRepository(Project).create(project);
+  return getRepository(Project).create(project);
 }
 
 export async function saveProject(project: Project){
@@ -19,7 +19,7 @@ export async function saveProject(project: Project){
 }
 
 export async function updateProject(project: Project, updatedProject: Project){
-  return await getRepository(Project).merge(project, updatedProject);
+  return getRepository(Project).merge(project, updatedProject);
 }
 
 export async function deleteProjectById(id: string){
