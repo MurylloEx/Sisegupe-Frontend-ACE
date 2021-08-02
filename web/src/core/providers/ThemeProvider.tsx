@@ -5,6 +5,8 @@ interface ThemeProviderProps {
   children: React.ReactNode;
 }
 
-export const ThemeProvider = ({ children }: ThemeProviderProps) => {
+const ThemeProvider = ({ children }: ThemeProviderProps) => {
   return <ChakraProvider>{children}</ChakraProvider>;
 };
+
+export default ThemeProvider;
