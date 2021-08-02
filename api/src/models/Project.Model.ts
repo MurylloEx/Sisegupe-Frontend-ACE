@@ -1,7 +1,10 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, BeforeInsert, BeforeUpdate, OneToMany } from 'typeorm';
-import { IsDefined, MaxLength, MinLength, validateOrReject } from 'class-validator';
-import { ProjectStage } from './ProjectStage.Enum';
+import { User } from './User.Model';
 import { Document } from './Document.Model';
+import { ProjectStage } from './ProjectStage.Enum';
+import { IsDefined, MaxLength, MinLength, validateOrReject } from 'class-validator';
+import { OneToMany, JoinColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, BeforeInsert, BeforeUpdate } from 'typeorm';
 
 @Entity()
 export class Project extends BaseEntity {
@@ -10,46 +13,32 @@ export class Project extends BaseEntity {
   public id?: string;
 
   @IsDefined()
-  @MaxLength(64, { message: 'Máximo de 64 caracteres no título.' })
-  @MinLength(4, { message: 'Mínimo de 4 caracteres no título.' })
+  @MaxLength(64)
+  @MinLength(4)
   @Column()
   public title?: string;
 
   @IsDefined()
-  @MaxLength(2048, { message: 'Máximo de 2048 caracteres permitidos no resumo.' })
+  @MaxLength(2048)
   @Column()
   public summary?: string;
 
-  @IsDefined()
-  @MaxLength(64, { message: 'Máximo de 64 caracteres permitidos no nome do autor.' })
-  @MinLength(4, { message: 'Mínimo de 4 caracteres permitidos no nome do autor.' })
-  @Column()
-  public authorName?: string;
+  @ManyToOne(() => User, user => user.projects)
+  public author?: User;
 
   @IsDefined()
-  @MaxLength(11, { message: 'O CPF do autor precisa conter 11 dígitos.' })
-  @MinLength(11, { message: 'O CPF do autor precisa conter 11 dígitos.' })
-  @Column()
-  public authorCpf?: string;
-
-  @IsDefined()
-  @MaxLength(64, { message: 'Máximo de 64 caracteres permitidos no nome do orientador.' })
-  @MinLength(4, { message: 'Mínimo de 4 caracteres permitidos no nome do orientador.' })
+  @MaxLength(64)
+  @MinLength(4)
   @Column()
   public advisorName?: string;
 
-  @IsDefined()
-  @MaxLength(11, { message: 'O CPF do orientador precisa conter 11 dígitos.' })
-  @MinLength(11, { message: 'O CPF do orientador precisa conter 11 dígitos.' })
-  @Column()
-  public advisorCpf?: string;
-
-  @OneToMany(type => Document, document => document.project, { cascade: true })
+  @OneToMany(() => Document, document => document.project, { cascade: true })
+  @JoinColumn()
   public fileDocuments?: Document[];
 
   @IsDefined()
-  @MaxLength(32, { message: 'Tamanho máximo do campo curso é de 32 caracteres.' })
-  @MinLength(4, { message: 'Tamanho mínimo do campo curso é de 4 caracteres.' })
+  @MaxLength(32)
+  @MinLength(4)
   @Column()
   public courseName?: string;
 
