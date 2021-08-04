@@ -1,11 +1,11 @@
 import { Box, Flex, HStack, Link, Icon } from "@chakra-ui/react";
 
 import { useTheme } from "../hooks";
-import { Home, Info, TableChart } from "@material-ui/icons";
+import { Home, Info, ShowChart } from "@material-ui/icons";
 
 const PAGES = [
   { link: "/", linkName: "Inicio", icon: Home },
-  { link: "/home/projects", linkName: "Projeto", icon: TableChart },
+  { link: "/home/projects", linkName: "Projeto", icon: ShowChart },
   { link: "/home/about", linkName: "Sobre", icon: Info },
 ];
 
