@@ -1,5 +1,13 @@
-import styles from "../styles/Home.module.css";
+import React from "react";
 
-export default function Home() {
-  return <div className={styles.container}>Página inicial</div>;
-}
+const HomePage = () => {
+  return (
+    <div>
+      <h1>HomePage</h1>
+    </div>
+  );
+};
+
+HomePage.pageTitle = "Página inicial";
+
+export default HomePage;
