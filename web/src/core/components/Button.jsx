@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button: React.FC = () => {
+const Button = () => {
   return <div />;
 };
 

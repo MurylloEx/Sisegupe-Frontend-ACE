@@ -1,10 +1,6 @@
 import React from "react";
 
-interface HomePageFC extends React.FC {
-  pageTitle?: string;
-}
-
-const HomePage: HomePageFC = () => {
+const HomePage = () => {
   return (
     <div>
       <h1>HomePage</h1>

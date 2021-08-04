@@ -1,6 +1,6 @@
 import React from "react";
 
-const Carrousel: React.FC = () => {
+const Carrousel = () => {
   return <div />;
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Avatar: React.FC = () => {
+const Avatar = () => {
   return <div />;
 };
 

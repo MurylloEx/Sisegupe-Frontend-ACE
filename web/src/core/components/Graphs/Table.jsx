@@ -1,6 +1,6 @@
 import React from "react";
 
-const Table: React.FC = () => {
+const Table = () => {
   return <div />;
 };
 
