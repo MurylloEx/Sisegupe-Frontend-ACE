@@ -7,4 +7,6 @@ export default {
   blue: "blue.900",
   green: "green.300",
   background: "#f4f5f7",
+  gray: "#f9f9f9",
+  grayStrong: "#575757",
 };
