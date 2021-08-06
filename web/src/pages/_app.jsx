@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+
 import { ThemeProvider } from "../core/providers";
 import { Navbar } from "../core/components";
 

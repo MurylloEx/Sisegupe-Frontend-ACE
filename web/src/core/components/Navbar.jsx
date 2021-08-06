@@ -1,13 +1,17 @@
 import { Box, Flex, HStack, Link, Icon } from "@chakra-ui/react";
+import { Home, Info, ShowChart } from "@material-ui/icons";
+import Image from "next/image";
+import Logo from "../../../public/logo.png";
 
 import { useTheme } from "../hooks";
-import { Home, Info, ShowChart } from "@material-ui/icons";
 
 const PAGES = [
   { link: "/", linkName: "Inicio", icon: Home },
   { link: "/home/projects", linkName: "Projeto", icon: ShowChart },
   { link: "/home/about", linkName: "Sobre", icon: Info },
 ];
+
+const LOGO_SIZE = 50;
 
 const NavLink = ({ icon, linkName, colors, link }) => (
   <Link px={2} py={1} color={colors.white} rounded={"md"} href={link}>
@@ -31,19 +35,18 @@ const Navbar = () => {
 
   return (
     <Box bg={colors.blue} px={4}>
-      <Flex alignItems={"center"} justifyContent={"space-between"}>
-        <Flex alignItems={"center"} justifyContent={"flex-start"}>
-          <Box color={colors.white}>Logo</Box>
+      <Flex alignItems="center" justifyContent="space-between">
+        <Flex alignItems="center" justifyContent="flex-start" m={4}>
+          <Image
+            src={Logo}
+            alt="upe-logo"
+            height={LOGO_SIZE}
+            width={LOGO_SIZE * 2.6}
+          />
         </Flex>
-        <Flex h={16} alignItems={"center"} justifyContent={"flex-end"}>
-          <HStack spacing={8} alignItems={"center"}>
-            <HStack
-              as={"nav"}
-              spacing={4}
-              display={{ base: "none", md: "flex" }}
-            >
-              {PAGES.map(renderItem)}
-            </HStack>
+        <Flex h={16} alignItems="center" justifyContent="flex-end">
+          <HStack spacing={8} alignItems="center">
+            {PAGES.map(renderItem)}
           </HStack>
         </Flex>
       </Flex>

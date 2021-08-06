@@ -6,4 +6,5 @@ export default {
   red: "red.500",
   blue: "blue.900",
   green: "green.300",
+  background: "#f4f5f7",
 };
