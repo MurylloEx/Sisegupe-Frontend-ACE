@@ -1,7 +1,6 @@
 const { Box } = require("@chakra-ui/react");
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 import { useTheme } from "core/hooks";
-import { useCallback } from "react";
 /**
  *
  * @param string tintColor

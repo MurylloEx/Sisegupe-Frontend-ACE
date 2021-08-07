@@ -1,3 +1,4 @@
+import NextLink from "next/link";
 import { Box, Flex, HStack, Link, Icon } from "@chakra-ui/react";
 import { Home, Info, ShowChart } from "@material-ui/icons";
 
@@ -11,10 +12,12 @@ const PAGES = [
 ];
 
 const NavLink = ({ icon, linkName, colors, link }) => (
-  <Link px={2} py={1} color={colors.white} rounded={"md"} href={link}>
-    <Icon as={icon} mx={2} />
-    {linkName}
-  </Link>
+  <NextLink href={link}>
+    <Link px={2} py={1} color={colors.white} rounded={"md"}>
+      <Icon as={icon} mx={2} />
+      {linkName}
+    </Link>
+  </NextLink>
 );
 
 const Navbar = () => {

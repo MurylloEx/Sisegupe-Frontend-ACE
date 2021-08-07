@@ -1,40 +1,53 @@
 /* eslint-disable react/jsx-key */
 import React from "react";
 import Image from "next/image";
-import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
-import { Carousel } from "./Carousel";
+import Carousel from "./Carousel";
 import { Box } from "@chakra-ui/react";
-import { useTheme } from "core/hooks";
 
-const TEST_IMAGE =
-  "https://images.unsplash.com/photo-1495020689067-958852a7765e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80";
+import { useTheme } from "core/hooks";
+import { Range } from "core/utils";
+
+import MOCKED_GRAPH from "public/graph1.png";
+import { Card } from "core/components";
+
+const Slide = (props) => {
+  const { colors } = useTheme();
+
+  return (
+    <Carousel.Item {...props}>
+      <Card
+        header={() => (
+          <Card.TextHeader
+            bg={colors.gray}
+            padding={4}
+            bold
+            fontSize={30}
+            fontColor={colors.grayStrong}
+            textAlign="center"
+          >
+            Cursos
+          </Card.TextHeader>
+        )}
+        mx={4}
+      >
+        <Image src={MOCKED_GRAPH} alt="graph" />
+      </Card>
+    </Carousel.Item>
+  );
+};
 
 const ChartsCarousel = (props) => {
-  const slides = [
-    <Box mx={4}>
-      <Image alt="test-image" src={TEST_IMAGE} height={200} width={400} />
-    </Box>,
-    <Box mx={4}>
-      <Image alt="test-image" src={TEST_IMAGE} height={200} width={400} />
-    </Box>,
-    <Box mx={4}>
-      <Image alt="test-image" src={TEST_IMAGE} height={200} width={400} />
-    </Box>,
-    <Box mx={4}>
-      <Image alt="test-image" src={TEST_IMAGE} height={200} width={400} />
-    </Box>,
-  ];
+  const slides = Range().map((_, i) => <Slide key={i} />);
 
   return (
     <Carousel
       slides={slides}
-      visibleSlides={3}
       {...props}
       backButtonIcon={({ tintColor }) => (
-        <Carousel.Button tintColor={tintColor} buttonType="back" />
+        <Carousel.Button tintColor={tintColor} direction="back" />
       )}
       forwardButtonIcon={({ tintColor }) => (
-        <Carousel.Button tintColor={tintColor} buttonType="forward" />
+        <Carousel.Button tintColor={tintColor} direction="forward" />
       )}
     />
   );

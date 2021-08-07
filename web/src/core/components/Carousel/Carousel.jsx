@@ -15,6 +15,7 @@ import { useTheme } from "../../hooks";
 import NewsCarousel from "./News";
 import ChartsCarousel from "./Charts";
 import CarouselButton from "./Button";
+import CarouselItem from "./Item";
 
 const CarouselComponent = ({
   width = 333,
@@ -71,5 +72,6 @@ const CarouselComponent = ({
 CarouselComponent.News = NewsCarousel;
 CarouselComponent.Charts = ChartsCarousel;
 CarouselComponent.Button = CarouselButton;
+CarouselComponent.Item = CarouselItem;
 
 export default CarouselComponent;
