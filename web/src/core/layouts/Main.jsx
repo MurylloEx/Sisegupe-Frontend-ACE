@@ -5,8 +5,9 @@ import { useTheme } from "core/hooks";
 
 import { UserWidget } from "core/components";
 
-const MainContainer = ({ children }) => {
+const MainLayout = ({ children }) => {
   const { colors } = useTheme();
+
   return (
     <>
       <Grid
@@ -22,4 +23,4 @@ const MainContainer = ({ children }) => {
   );
 };
 
-export default MainContainer;
+export default MainLayout;

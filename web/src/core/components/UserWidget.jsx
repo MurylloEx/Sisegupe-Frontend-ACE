@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, GridItem, Flex, Text, Button, Box } from "@chakra-ui/react";
+import { GridItem, Flex, Button, Box } from "@chakra-ui/react";
 import { useTheme } from "core/hooks";
 import Avatar from "./Avatar";
 
