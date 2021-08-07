@@ -14,6 +14,7 @@ import { ArrowForwardIos, ArrowBackIos } from "@material-ui/icons";
 import { useTheme } from "../../hooks";
 import NewsCarousel from "./NewsCarousel";
 import ChartsCarousel from "./ChartsCarousel";
+import CarouselButton from "./CarouselButton";
 
 const CarouselComponent = ({
   width = 333,
@@ -67,5 +68,6 @@ const CarouselComponent = ({
 
 CarouselComponent.News = NewsCarousel;
 CarouselComponent.Charts = ChartsCarousel;
+CarouselComponent.Button = CarouselButton;
 
 export default CarouselComponent;

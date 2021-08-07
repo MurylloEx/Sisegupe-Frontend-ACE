@@ -41,18 +41,10 @@ const NewsCarousel = (props) => {
       visibleSlides={3}
       {...props}
       backButtonIcon={({ tintColor }) => (
-        <CustomMovementButton>
-          <ArrowBackIos
-            style={{ color: tintColor, fontSize: 30, paddingLeft: 8 }}
-          />
-        </CustomMovementButton>
+        <Carousel.Button tintColor={tintColor} direction="back" />
       )}
       forwardButtonIcon={({ tintColor }) => (
-        <CustomMovementButton>
-          <ArrowForwardIos
-            style={{ color: tintColor, fontSize: 30, paddingLeft: 8 }}
-          />
-        </CustomMovementButton>
+        <Carousel.Button tintColor={tintColor} direction="forward" />
       )}
     />
   );

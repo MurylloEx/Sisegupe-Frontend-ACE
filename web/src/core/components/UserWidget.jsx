@@ -1,14 +1,7 @@
 import React from "react";
-import {
-  Grid,
-  GridItem,
-  Avatar,
-  Flex,
-  Text,
-  Button,
-  Box,
-} from "@chakra-ui/react";
+import { Grid, GridItem, Flex, Text, Button, Box } from "@chakra-ui/react";
 import { useTheme } from "core/hooks";
+import Avatar from "./Avatar";
 
 const UserWidget = () => {
   const { colors } = useTheme();
@@ -16,14 +9,7 @@ const UserWidget = () => {
   return (
     <GridItem width="-moz-max-content">
       <Flex flex={1} flexDirection="column" alignItems="center" mt="48" p={4}>
-        <Avatar
-          name="Luiz Gustavo"
-          size="2xl"
-          mb={4}
-          bg={colors.red}
-          color={colors.white}
-        />
-        <Text fontSize="2xl">Luiz Gustavo</Text>
+        <Avatar name="Luiz Gustavo" />
         <Box mb="10" />
         <Button
           bg={colors.blue}

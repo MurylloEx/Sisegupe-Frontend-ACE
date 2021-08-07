@@ -5,6 +5,7 @@ export { default as Logo } from "./Logo";
 export { default as CardBodyText } from "./Card/CardTextBody";
 export { default as CardHeaderWithText } from "./Card/CardTextHeader";
 export { default as UserWidget } from "./UserWidget";
+export { default as AvatarComponent } from "./Avatar";
 
 export * from "./Carousel";
 export * as Graphs from "./Graphs";

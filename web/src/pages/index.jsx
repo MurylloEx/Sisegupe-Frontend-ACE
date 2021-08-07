@@ -19,6 +19,7 @@ const HomePage = () => {
         templateColumns="1fr 2fr"
         bg={colors.background}
         width="-moz-max-content"
+        p={10}
       >
         <UserWidget />
         <GridItem width="-moz-max-content">
