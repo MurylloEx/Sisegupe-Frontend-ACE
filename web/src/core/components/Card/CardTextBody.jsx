@@ -1,6 +1,6 @@
-const { Text } = require("@chakra-ui/react");
+import { Text } from "@chakra-ui/react";
 
-const CardBodyText = ({
+const CardTextBody = ({
   children,
   bold = true,
   fontSize = 50,
@@ -19,4 +19,4 @@ const CardBodyText = ({
   );
 };
 
-export default CardBodyText;
+export default CardTextBody;

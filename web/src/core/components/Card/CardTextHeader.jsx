@@ -1,6 +1,6 @@
 import { Box, Text } from "@chakra-ui/react";
 
-const CardHeaderWithText = ({
+const CardTextHeader = ({
   children,
   fontColor,
   bold,
@@ -22,4 +22,4 @@ const CardHeaderWithText = ({
   );
 };
 
-export default CardHeaderWithText;
+export default CardTextHeader;

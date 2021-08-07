@@ -1,6 +1,10 @@
-import { Box, Flex, Stack } from "@chakra-ui/react";
-import { useTheme } from "core/hooks";
 import React from "react";
+import { Box, Stack } from "@chakra-ui/react";
+
+import { useTheme } from "core/hooks";
+
+import CardTextBody from "./CardTextBody";
+import CardTextHeader from "./CardTextHeader";
 
 const Card = ({
   children,
@@ -23,5 +27,8 @@ const Card = ({
     </Stack>
   );
 };
+
+Card.TextBody = CardTextBody;
+Card.TextHeader = CardTextHeader;
 
 export default Card;

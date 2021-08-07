@@ -13,13 +13,7 @@ import {
 
 import { useTheme } from "core/hooks";
 
-import {
-  NewsCarousel,
-  Card,
-  CardHeaderWithText,
-  CardBodyText,
-  UserWidget,
-} from "core/components";
+import { Carousel, Card, UserWidget } from "core/components";
 
 import MOCKED_GRAPH from "public/graph1.png";
 
@@ -45,7 +39,7 @@ const Projects = () => {
                 justifyItems="center"
                 mt={10}
               >
-                <NewsCarousel height="200" />
+                <Carousel.News height="200" />
               </Flex>
             </GridItem>
             <GridItem>
@@ -54,43 +48,43 @@ const Projects = () => {
                   <Stack>
                     <Card
                       header={() => (
-                        <CardHeaderWithText fontColor={colors.blue} bold>
+                        <Card.TextHeader fontColor={colors.blue} bold>
                           Todos
-                        </CardHeaderWithText>
+                        </Card.TextHeader>
                       )}
                       m={4}
                       height={CARD_HEADER_DEFAULT}
                     >
-                      <CardBodyText> 232 </CardBodyText>
+                      <Card.TextBody> 232 </Card.TextBody>
                     </Card>
                     <Card
                       header={() => (
-                        <CardHeaderWithText fontColor={colors.blue} bold>
+                        <Card.TextHeader fontColor={colors.blue} bold>
                           Em andamento
-                        </CardHeaderWithText>
+                        </Card.TextHeader>
                       )}
                       m={4}
                       height={CARD_HEADER_DEFAULT}
                     >
-                      <CardBodyText> 92 </CardBodyText>
+                      <Card.TextBody> 92 </Card.TextBody>
                     </Card>
                     <Card
                       header={() => (
-                        <CardHeaderWithText fontColor={colors.blue} bold>
+                        <Card.TextHeader fontColor={colors.blue} bold>
                           Concluídos
-                        </CardHeaderWithText>
+                        </Card.TextHeader>
                       )}
                       m={4}
                       height={CARD_HEADER_DEFAULT}
                     >
-                      <CardBodyText> 140 </CardBodyText>
+                      <Card.TextBody> 140 </Card.TextBody>
                     </Card>
                   </Stack>
                 </GridItem>
                 <GridItem>
                   <Card
                     header={() => (
-                      <CardHeaderWithText
+                      <Card.TextHeader
                         bg={colors.gray}
                         padding={4}
                         bold
@@ -99,7 +93,7 @@ const Projects = () => {
                         textAlign="center"
                       >
                         Cursos
-                      </CardHeaderWithText>
+                      </Card.TextHeader>
                     )}
                     mx={4}
                   >
