@@ -39,7 +39,7 @@ const HomePage = () => {
                   <Stack>
                     <Card
                       header={() => (
-                        <Card.TextHeader fontColor={colors.blue} bold>
+                        <Card.TextHeader fontColor={colors.grayMedium} bold>
                           Todos
                         </Card.TextHeader>
                       )}
@@ -50,7 +50,7 @@ const HomePage = () => {
                     </Card>
                     <Card
                       header={() => (
-                        <Card.TextHeader fontColor={colors.blue} bold>
+                        <Card.TextHeader fontColor={colors.grayMedium} bold>
                           Em andamento
                         </Card.TextHeader>
                       )}
@@ -61,7 +61,7 @@ const HomePage = () => {
                     </Card>
                     <Card
                       header={() => (
-                        <Card.TextHeader fontColor={colors.blue} bold>
+                        <Card.TextHeader fontColor={colors.grayMedium} bold>
                           Concluídos
                         </Card.TextHeader>
                       )}

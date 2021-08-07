@@ -8,5 +8,6 @@ export default {
   green: "green.300",
   background: "#f4f5f7",
   gray: "#f9f9f9",
+  grayMedium: "#9FA2B4",
   grayStrong: "#575757",
 };
