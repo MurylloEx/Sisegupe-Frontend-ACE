@@ -14,7 +14,7 @@ const CardTextHeader = ({
   return (
     <Box p={4} {...props}>
       <Text
-        color={fontColor ?? colors.blue}
+        color={fontColor ?? colors.primary}
         textAlign={textAlign}
         style={bold && { fontWeight: "bold" }}
         fontSize={fontSize}

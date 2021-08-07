@@ -48,7 +48,7 @@ const About = () => {
                   <Stack>
                     <Card
                       header={() => (
-                        <Card.TextHeader fontColor={colors.blue} bold>
+                        <Card.TextHeader fontColor={colors.primary} bold>
                           Todos
                         </Card.TextHeader>
                       )}
@@ -59,7 +59,7 @@ const About = () => {
                     </Card>
                     <Card
                       header={() => (
-                        <Card.TextHeader fontColor={colors.blue} bold>
+                        <Card.TextHeader fontColor={colors.primary} bold>
                           Em andamento
                         </Card.TextHeader>
                       )}
@@ -70,7 +70,7 @@ const About = () => {
                     </Card>
                     <Card
                       header={() => (
-                        <Card.TextHeader fontColor={colors.blue} bold>
+                        <Card.TextHeader fontColor={colors.primary} bold>
                           Concluídos
                         </Card.TextHeader>
                       )}

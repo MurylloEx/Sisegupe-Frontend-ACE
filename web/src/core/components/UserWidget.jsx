@@ -12,7 +12,7 @@ const UserWidget = () => {
         <Avatar name="Luiz Gustavo" />
         <Box mb="10" />
         <Button
-          bg={colors.blue}
+          bg={colors.primary}
           color={colors.white}
           mb={4}
           width="50%"
@@ -20,7 +20,7 @@ const UserWidget = () => {
         >
           Meu Perfil
         </Button>
-        <Button bg={colors.blue} color={colors.white} size="lg" width="50%">
+        <Button bg={colors.primary} color={colors.white} size="lg" width="50%">
           Meus Projetos
         </Button>
       </Flex>

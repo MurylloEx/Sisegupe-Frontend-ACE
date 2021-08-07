@@ -31,7 +31,7 @@ const Navbar = () => {
   );
 
   return (
-    <Box bg={colors.blue} px={4}>
+    <Box bg={colors.primary} px={4}>
       <Flex alignItems="center" justifyContent="space-between">
         <Flex alignItems="center" justifyContent="flex-start" m={4}>
           <Logo />

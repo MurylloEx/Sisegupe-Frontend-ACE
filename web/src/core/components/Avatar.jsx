@@ -14,7 +14,7 @@ const Avatar = ({ name, fontSize }) => {
         name={name}
         size="2xl"
         mb={4}
-        bg={colors.red}
+        bg={colors.secondary}
         color={colors.white}
       />
       <Text fontSize={fontSize ?? "2xl"}>{name}</Text>
