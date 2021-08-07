@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
-import { Carousel } from "core/components";
+import { Carousel } from "./Carousel";
 import { Box } from "@chakra-ui/react";
 import { useTheme } from "core/hooks";
 
@@ -19,7 +19,7 @@ const CustomMovementButton = ({ children }) => {
   );
 };
 
-const NewsCarousel = (props) => {
+const ChartsCarousel = (props) => {
   const slides = [
     <Box mx={4}>
       <Image alt="test-image" src={TEST_IMAGE} height={200} width={400} />
@@ -58,4 +58,4 @@ const NewsCarousel = (props) => {
   );
 };
 
-export default NewsCarousel;
+export default ChartsCarousel;

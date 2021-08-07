@@ -6,12 +6,14 @@ import {
   ButtonBack,
   ButtonNext,
   DotGroup,
-  Dot,
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { Box, Flex } from "@chakra-ui/react";
 import { ArrowForwardIos, ArrowBackIos } from "@material-ui/icons";
-import { useTheme } from "../hooks";
+
+import { useTheme } from "../../hooks";
+import NewsCarousel from "./NewsCarousel";
+import ChartsCarousel from "./ChartsCarousel";
 
 const CarouselComponent = ({
   width = 333,
@@ -62,5 +64,8 @@ const CarouselComponent = ({
     </CarouselProvider>
   );
 };
+
+CarouselComponent.News = NewsCarousel;
+CarouselComponent.Charts = ChartsCarousel;
 
 export default CarouselComponent;

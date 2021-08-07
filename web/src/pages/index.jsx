@@ -14,11 +14,11 @@ import {
 import { useTheme } from "core/hooks";
 
 import {
-  NewsCarousel,
   Card,
   CardHeaderWithText,
   CardBodyText,
   UserWidget,
+  Carousel,
 } from "core/components";
 
 import MOCKED_GRAPH from "public/graph1.png";
@@ -45,7 +45,7 @@ const HomePage = () => {
                 justifyItems="center"
                 mt={10}
               >
-                <NewsCarousel height="200" />
+                <Carousel.News height="200" />
               </Flex>
             </GridItem>
             <GridItem>

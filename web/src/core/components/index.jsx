@@ -1,11 +1,10 @@
 export { default as Button } from "./Button";
-export { default as Carousel } from "./Carousel";
 export { default as Navbar } from "./Navbar";
+export * from "./Carousel";
 export * as Graphs from "./Graphs";
 export { default as Card } from "./Card";
 export { default as Footer } from "./Footer";
 export { default as Logo } from "./Logo";
-export { default as NewsCarousel } from "./NewsCarousel";
 export { default as CardBodyText } from "./CardBodyText";
 export { default as CardHeaderWithText } from "./CardHeaderWithText";
 export { default as UserWidget } from "./UserWidget";
