@@ -8,7 +8,14 @@ const UserWidget = () => {
 
   return (
     <GridItem width="-moz-max-content">
-      <Flex flex={1} flexDirection="column" alignItems="center" mt="48" p={4}>
+      <Flex
+        flex={1}
+        height="100%"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        p={4}
+      >
         <Avatar name="Luiz Gustavo" />
         <Box mb="10" />
         <Button
