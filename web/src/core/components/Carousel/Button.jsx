@@ -1,4 +1,4 @@
-const { Box } = require("@chakra-ui/react");
+import { Box } from "@chakra-ui/react";
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 import { useTheme } from "core/hooks";
 
