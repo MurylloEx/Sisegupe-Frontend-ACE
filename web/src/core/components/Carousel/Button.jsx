@@ -1,10 +1,9 @@
 const { Box } = require("@chakra-ui/react");
 import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
 import { useTheme } from "core/hooks";
+
 /**
- *
- * @param string tintColor
- * @param 'back' | 'forward' buttonType
+ * @param {{tintColor: string, direction: 'back' | 'forward' }} props
  */
 const CarouselButton = ({ tintColor, direction }) => {
   const { colors } = useTheme();
