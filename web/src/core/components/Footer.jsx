@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Stack, Text } from "@chakra-ui/react";
-import { Logo } from ".";
+
+import Logo from "./Logo";
 
 const Footer = () => {
   return (

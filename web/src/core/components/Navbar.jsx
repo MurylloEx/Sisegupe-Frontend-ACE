@@ -1,8 +1,8 @@
 import { Box, Flex, HStack, Link, Icon } from "@chakra-ui/react";
 import { Home, Info, ShowChart } from "@material-ui/icons";
-import { Logo } from ".";
 
 import { useTheme } from "../hooks";
+import Logo from "./Logo";
 
 const PAGES = [
   { link: "/", linkName: "Inicio", icon: Home },
