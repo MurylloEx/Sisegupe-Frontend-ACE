@@ -12,9 +12,9 @@ import { Box, Flex } from "@chakra-ui/react";
 import { ArrowForwardIos, ArrowBackIos } from "@material-ui/icons";
 
 import { useTheme } from "../../hooks";
-import NewsCarousel from "./NewsCarousel";
-import ChartsCarousel from "./ChartsCarousel";
-import CarouselButton from "./CarouselButton";
+import NewsCarousel from "./News";
+import ChartsCarousel from "./Charts";
+import CarouselButton from "./Button";
 
 const CarouselComponent = ({
   width = 333,

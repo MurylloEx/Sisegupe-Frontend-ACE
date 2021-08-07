@@ -9,16 +9,6 @@ import { useTheme } from "core/hooks";
 const TEST_IMAGE =
   "https://images.unsplash.com/photo-1495020689067-958852a7765e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80";
 
-const CustomMovementButton = ({ children }) => {
-  const { colors } = useTheme();
-
-  return (
-    <Box bg={colors.white} p={2} borderRadius={50}>
-      {children}
-    </Box>
-  );
-};
-
 const ChartsCarousel = (props) => {
   const slides = [
     <Box mx={4}>

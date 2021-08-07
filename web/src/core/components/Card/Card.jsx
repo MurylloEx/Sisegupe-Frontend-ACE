@@ -3,8 +3,8 @@ import { Box, Stack } from "@chakra-ui/react";
 
 import { useTheme } from "core/hooks";
 
-import CardTextBody from "./CardTextBody";
-import CardTextHeader from "./CardTextHeader";
+import CardTextBody from "./TextBody";
+import CardTextHeader from "./TextHeader";
 
 const Card = ({
   children,
