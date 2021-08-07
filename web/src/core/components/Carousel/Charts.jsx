@@ -1,14 +1,13 @@
-/* eslint-disable react/jsx-key */
 import React from "react";
-import Image from "next/image";
-import Carousel from "./Carousel";
-import { Box } from "@chakra-ui/react";
 
 import { useTheme } from "core/hooks";
 import { Range } from "core/utils";
 
+import Card from "../Card/Card";
+import Image from "../Image";
+import Carousel from "./Carousel";
+
 import MOCKED_GRAPH from "public/graph1.png";
-import { Card } from "core/components";
 
 const Slide = (props) => {
   const { colors } = useTheme();
@@ -30,7 +29,7 @@ const Slide = (props) => {
         )}
         mx={4}
       >
-        <Image src={MOCKED_GRAPH} alt="graph" />
+        <Image src={MOCKED_GRAPH} alt="graph" height={800} />
       </Card>
     </Carousel.Item>
   );

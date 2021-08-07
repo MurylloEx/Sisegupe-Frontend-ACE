@@ -1,8 +1,7 @@
 /* eslint-disable react/jsx-key */
 import React from "react";
-import Image from "next/image";
+import Image from "../image";
 import Carousel from "./Carousel";
-import { Box } from "@chakra-ui/react";
 import { Range } from "core/utils";
 
 const TEST_IMAGE =
@@ -17,12 +16,14 @@ const Slide = (props) => {
 };
 
 const NewsCarousel = (props) => {
-  const slides = Range(3).map((_, i) => <Slide key={i} />);
+  const slides = Range(6).map((_, i) => <Slide key={i} />);
 
   return (
     <Carousel
       slides={slides}
       visibleSlides={3}
+      interval={3000}
+      isPlaying
       {...props}
       backButtonIcon={({ tintColor }) => (
         <Carousel.Button tintColor={tintColor} direction="back" />

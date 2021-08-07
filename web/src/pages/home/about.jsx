@@ -14,12 +14,6 @@ import {
 
 import { useTheme } from "core/hooks";
 
-import { Carousel, Card, UserWidget } from "core/components";
-
-import MOCKED_GRAPH from "public/graph1.png";
-
-const CARD_HEADER_DEFAULT = 40;
-
 const About = () => {
   const { colors } = useTheme();
 
@@ -29,5 +23,7 @@ const About = () => {
     </Grid>
   );
 };
+
+About.pageTitle = "Sobre";
 
 export default About;

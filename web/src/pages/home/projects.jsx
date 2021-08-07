@@ -13,12 +13,6 @@ import {
 
 import { useTheme } from "core/hooks";
 
-import { Carousel, Card, UserWidget } from "core/components";
-
-import MOCKED_GRAPH from "public/graph1.png";
-
-const CARD_HEADER_DEFAULT = 40;
-
 const Projects = () => {
   const { colors } = useTheme();
 
@@ -28,5 +22,7 @@ const Projects = () => {
     </Grid>
   );
 };
+
+Projects.pageTitle = "Projetos";
 
 export default Projects;

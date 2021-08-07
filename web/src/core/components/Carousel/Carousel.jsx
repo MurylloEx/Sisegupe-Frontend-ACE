@@ -30,7 +30,9 @@ const CarouselComponent = ({
   const { colors } = useTheme();
 
   const renderSlide = (children, index) => (
-    <Slide index={index}>{children}</Slide>
+    <Slide index={index} key={index}>
+      {children}
+    </Slide>
   );
 
   if (!slides.length) {
