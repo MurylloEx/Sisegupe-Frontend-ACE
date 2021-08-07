@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Image from "./Image";
 import LogoImage from "../../../public/logo.png";
 
 const LOGO_SIZE = 50;

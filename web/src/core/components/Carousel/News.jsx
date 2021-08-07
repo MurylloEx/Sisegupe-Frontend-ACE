@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-key */
 import React from "react";
-import Image from "../image";
+import Image from "../Image";
 import Carousel from "./Carousel";
 import { Range } from "core/utils";
 
