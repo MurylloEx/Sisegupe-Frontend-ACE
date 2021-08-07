@@ -12,11 +12,13 @@ import {
 } from "@chakra-ui/react";
 
 import { useTheme } from "core/hooks";
-import { NewsCarousel } from "home/components";
-import { Card } from "core/components";
 
-import { CardHeaderWithText } from "home/components";
-import { CardBodyText } from "home/components";
+import {
+  NewsCarousel,
+  Card,
+  CardHeaderWithText,
+  CardBodyText,
+} from "core/components";
 
 import MOCKED_GRAPH from "public/graph1.png";
 

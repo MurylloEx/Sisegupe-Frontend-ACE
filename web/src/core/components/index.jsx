@@ -5,3 +5,6 @@ export * as Graphs from "./Graphs";
 export { default as Card } from "./Card";
 export { default as Footer } from "./Footer";
 export { default as Logo } from "./Logo";
+export { default as NewsCarousel } from "./NewsCarousel";
+export { default as CardBodyText } from "./CardBodyText";
+export { default as CardHeaderWithText } from "./CardHeaderWithText";

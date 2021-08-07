@@ -5,8 +5,8 @@
       "core/*": [
         "src/core/*"
       ],
-      "home/*": [
-        "src/pages/home/*"
+      "components/*": [
+        "src/components/*"
       ],
     },
   },
