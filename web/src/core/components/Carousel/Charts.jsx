@@ -29,7 +29,7 @@ const Slide = (props) => {
         )}
         mx={4}
       >
-        <Image src={MOCKED_GRAPH} alt="graph" height={800} />
+        <Image src={MOCKED_GRAPH} alt="graph" height={700} />
       </Card>
     </Carousel.Item>
   );
