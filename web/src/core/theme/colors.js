@@ -1,8 +1,8 @@
 /* eslint-disable import/no-anonymous-default-export */
 
 export default {
-  primary: "blue.900",
-  secondary: "red.500",
+  primary: "#1E355E",
+  secondary: "#E53E3E",
   background: "#f4f5f7",
   gray: "#f9f9f9",
   grayMedium: "#9FA2B4",

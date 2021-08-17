@@ -1,4 +1,3 @@
-export { default as Button } from "./Button";
 export { default as Navbar } from "./Navbar";
 export { default as Footer } from "./Footer";
 export { default as Logo } from "./Logo";
@@ -11,3 +10,5 @@ export { default as Image } from "./Image";
 export * from "./Carousel";
 export * as Graphs from "./Graphs";
 export * from "./Card";
+export * from "./TextInput";
+export * from "./Button";
