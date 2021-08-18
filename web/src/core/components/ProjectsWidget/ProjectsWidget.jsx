@@ -1,4 +1,4 @@
-import { Box, Flex, HStack } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
 import Project from "./Project";
 
@@ -15,7 +15,7 @@ const ProjectsWidget = ({ projects }) => {
   };
 
   return (
-    <Flex height="100%" flexDir="column" pt="10">
+    <Flex height="100%" flexDir="column">
       {projects.map(renderProject)}
     </Flex>
   );

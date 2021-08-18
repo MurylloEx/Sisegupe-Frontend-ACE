@@ -15,7 +15,7 @@ const HomePage = () => {
   return (
     <Grid templateRows="0.5fr 2fr">
       <GridItem>
-        <Flex flex={1} flexDirection="column" justifyItems="center" mt={10}>
+        <Flex flex={1} flexDirection="column" justifyItems="center">
           <Carousel.News height="200" />
         </Flex>
       </GridItem>

@@ -24,8 +24,9 @@ const MainLayout = ({ children }) => {
         templateColumns="1fr 2fr"
         bg={colors.background}
         width="-moz-max-content"
-        height="100vh"
-        p={10}
+        minHeight="100vh"
+        px={10}
+        py={20}
       >
         <UserWidget />
         <GridItem width="-moz-max-content">{children}</GridItem>
