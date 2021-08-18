@@ -1,5 +1,5 @@
 import React from "react";
-import { AddProjectCard, ProjectsWidget } from "core/components";
+import { AddProjectButton, ProjectsWidget } from "core/components";
 import { VStack } from "@chakra-ui/react";
 import { MockedData } from "core/utils";
 
@@ -9,7 +9,7 @@ const MyProjects = () => {
   return (
     <VStack spacing="10">
       <ProjectsWidget projects={DATA} />
-      <AddProjectCard />
+      <AddProjectButton />
     </VStack>
   );
 };

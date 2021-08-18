@@ -6,7 +6,7 @@ export { default as CardHeaderWithText } from "./Card/TextHeader";
 export { default as UserWidget } from "./UserWidget";
 export { default as AvatarComponent } from "./Avatar";
 export { default as Image } from "./Image";
-export { default as AddProjectCard } from "./AddProjectCard";
+export { default as AddProjectButton } from "./AddProjectButton";
 
 export * from "./Carousel";
 export * as Graphs from "./Graphs";
