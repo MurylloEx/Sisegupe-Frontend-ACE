@@ -11,7 +11,7 @@ const CardTextBody = ({
     <Text
       textAlign={textAlign}
       fontSize={fontSize}
-      style={bold && { fontWeight: "bold" }}
+      style={bold ? { fontWeight: "bold" } : null}
       {...props}
     >
       {children}
