@@ -1,7 +1,6 @@
 import React from "react";
-import { ProjectsWidget } from "core/components";
-import { HStack, Text, VStack } from "@chakra-ui/react";
-import AddCircleIcon from "@material-ui/icons/AddCircle";
+import { AddProjectCard, ProjectsWidget } from "core/components";
+import { VStack } from "@chakra-ui/react";
 
 const DATA = [
   {
@@ -22,19 +21,7 @@ const MyProjects = () => {
   return (
     <VStack spacing="10">
       <ProjectsWidget projects={DATA} />
-      <HStack
-        width="100%"
-        justifyContent="center"
-        alignItems="center"
-        borderWidth={3}
-        borderStyle="dashed"
-        p={10}
-      >
-        <Text textTransform="uppercase" fontSize="xl" fontWeight="bold">
-          Adicionar um novo projeto
-        </Text>
-        <AddCircleIcon style={{ fontSize: 48 }} />
-      </HStack>
+      <AddProjectCard />
     </VStack>
   );
 };
