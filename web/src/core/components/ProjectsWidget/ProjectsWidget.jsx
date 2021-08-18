@@ -7,8 +7,8 @@ const ProjectsWidget = ({ projects }) => {
     const isLastElement = index === list.length - 1;
 
     return (
-      <React.Fragment>
-        <Project project={project} key={`${index}`} />
+      <React.Fragment key={`${index}`}>
+        <Project project={project} />
         {!isLastElement && <Box height="10" />}
       </React.Fragment>
     );
