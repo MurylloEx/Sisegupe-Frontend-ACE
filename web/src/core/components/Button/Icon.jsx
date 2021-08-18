@@ -3,6 +3,7 @@ import {
   IconButton as ChakraIconButton,
   IconButtonProps,
 } from "@chakra-ui/react";
+import { Constants } from "core/utils";
 
 /**
  *
@@ -10,7 +11,18 @@ import {
  * @returns JSX.Element
  */
 const IconButton = (props) => {
-  return <ChakraIconButton {...props} />;
+  const { disabledDefaultBg } = Constants;
+
+  return (
+    <ChakraIconButton
+      {...{
+        _hover: disabledDefaultBg,
+        _focus: disabledDefaultBg,
+        _active: disabledDefaultBg,
+        ...props,
+      }}
+    />
+  );
 };
 
 export default IconButton;
