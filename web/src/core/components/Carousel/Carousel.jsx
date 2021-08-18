@@ -52,7 +52,7 @@ const CarouselComponent = ({
       <Flex flexDirection="row" alignItems="center" justifyContent="center">
         <Box px={4}>
           <ButtonBack>
-            {backButtonIcon({ tintColor: colors.secondary })}
+            {backButtonIcon({ tintColor: colors.primary })}
           </ButtonBack>
         </Box>
 
@@ -62,7 +62,7 @@ const CarouselComponent = ({
 
         <Box px={4}>
           <ButtonNext>
-            {forwardButtonIcon({ tintColor: colors.secondary })}
+            {forwardButtonIcon({ tintColor: colors.primary })}
           </ButtonNext>
         </Box>
       </Flex>
