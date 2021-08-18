@@ -25,7 +25,7 @@ const UserWidget = () => {
         <Box mb="10" />
         <Link href={MY_PROFILE_HREF} passHref>
           <Button mb={4} width="50%">
-            Meu Perfil
+            Meu perfil
           </Button>
         </Link>
         <Link href={MY_PROJECTS_HREF} passHref>
@@ -35,7 +35,7 @@ const UserWidget = () => {
             size="lg"
             width="50%"
           >
-            Meus Projetos
+            Meus projetos
           </Button>
         </Link>
       </Flex>
