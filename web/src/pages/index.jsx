@@ -67,6 +67,6 @@ const HomePage = () => {
   );
 };
 
-HomePage.pageTitle = "Página inicial";
+HomePage.configs = { pageTitle: "Página inicial", hasUserWidget: true };
 
 export default HomePage;

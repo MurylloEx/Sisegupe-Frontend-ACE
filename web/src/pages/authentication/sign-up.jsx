@@ -1,7 +1,9 @@
 import React from "react";
 
-const SignUpe = () => {
+const SignUp = () => {
   return <div />;
 };
 
-export default SignUpe;
+SignUp.configs = { pageTitle: "Cadastro", hasUserWidget: false };
+
+export default SignUp;

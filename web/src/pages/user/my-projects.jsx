@@ -14,6 +14,6 @@ const MyProjects = () => {
   );
 };
 
-MyProjects.pageTitle = "Meus projetos";
+MyProjects.configs = { pageTitle: "Meus projetos", hasUserWidget: true };
 
 export default MyProjects;

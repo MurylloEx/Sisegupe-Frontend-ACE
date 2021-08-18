@@ -38,6 +38,6 @@ const MyProfile = () => {
   );
 };
 
-MyProfile.pageTitle = "Meu perfil";
+MyProfile.configs = { pageTitle: "Meu perfil", hasUserWidget: true };
 
 export default MyProfile;

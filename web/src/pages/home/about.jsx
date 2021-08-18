@@ -23,6 +23,6 @@ const About = () => {
   );
 };
 
-About.pageTitle = "Sobre";
+About.configs = { pageTitle: "Sobre", hasUserWidget: true };
 
 export default About;
