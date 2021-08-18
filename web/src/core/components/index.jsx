@@ -12,3 +12,5 @@ export * as Graphs from "./Graphs";
 export * from "./Card";
 export * from "./TextInput";
 export * from "./Button";
+export * from "./Tag";
+export * from "./ProjectsWidget";
