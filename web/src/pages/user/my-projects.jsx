@@ -39,4 +39,6 @@ const MyProjects = () => {
   );
 };
 
+MyProjects.pageTitle = "Meus projetos";
+
 export default MyProjects;
