@@ -19,7 +19,7 @@ const Card = ({
     <Stack>
       <Box bg={bg ?? colors.white} boxShadow="lg" rounded="md" {...props}>
         <Box height="20%">{header()}</Box>
-        <Box minHeight="32" my="4" p={4}>
+        <Box minHeight="32" p={4}>
           {children}
         </Box>
         <Box height="20%">{footer()}</Box>
