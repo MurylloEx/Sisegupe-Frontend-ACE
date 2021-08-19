@@ -7,7 +7,7 @@ import Logo from "./Logo";
 
 const PAGES = [
   { link: "/", linkName: "Inicio", icon: Home },
-  { link: "/home/projects", linkName: "Projeto", icon: ShowChart },
+  { link: "/home/projects", linkName: "Projetos", icon: ShowChart },
   { link: "/home/about", linkName: "Sobre", icon: Info },
 ];
 
