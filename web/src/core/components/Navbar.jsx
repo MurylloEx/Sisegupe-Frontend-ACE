@@ -2,17 +2,19 @@ import NextLink from "next/link";
 import { Box, Flex, HStack, Link, Icon } from "@chakra-ui/react";
 import { Home, Info, ShowChart } from "@material-ui/icons";
 
+import { Constants } from "core/utils";
+
 import { useTheme } from "../hooks";
 import Logo from "./Logo";
 
 const PAGES = [
   { link: "/", linkName: "Inicio", icon: Home },
   { link: "/home/projects", linkName: "Projetos", icon: ShowChart },
-  { link: "/home/about", linkName: "Sobre", icon: Info },
+  { link: Constants.GitHubRepositoryLink, linkName: "Sobre", icon: Info },
 ];
 
 const NavLink = ({ icon, linkName, colors, link }) => (
-  <NextLink href={link}>
+  <NextLink href={link} passHref>
     <Link px={2} py={1} color={colors.white} rounded={"md"}>
       <Icon as={icon} mx={2} />
       {linkName}
