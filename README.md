@@ -22,7 +22,7 @@
 > ⏰ O **Sisegupe** é um _observatório que congrega os projetos desenvolvidos pelos alunos egressos da UPE Campus Garanhuns, oferecendo publicidade e servindo de vitrine para os egressos e seus respectivos projetos_.
 
 <div align="center">
-  <sub>O projeto Sisegupe. Foi construído com ❤︎ por
+  <sub>O projeto Sisegupe foi construído com ❤︎ por
     <a href="https://github.com/tonicprism">Luiz Gustavo, </a>
     <a href="https://github.com/MurylloEx">Muryllo Pimenta, </a>
     <a href="https://github.com/KelvinVasconcelos">Kelvin Vasconcelos </a>
@@ -53,11 +53,6 @@
    <img src="./.github/screenshots/projects-2.png" />
 </p>
 
-# 🧐 Artefatos
-
-- [Telas do protótipo](https://www.figma.com/file/9sv1E3Ni1IEJbIUGKpKptb/ACE-IV?node-id=0%3A1)
-- [Documento de Requisitos](https://docs.google.com/document/d/1qIx8YwccQ5LlimZONoryeNX2JD2nnLVM/edit?usp=sharing&ouid=105969994372846157930&rtpof=true&sd=true)
-
 # :computer: Tecnologias
 
 Este projeto foi feito utilizando as seguintes tecnologias:
@@ -68,10 +63,14 @@ Este projeto foi feito utilizando as seguintes tecnologias:
 - [NextJS](https://nextjs.org/)
 - [Figma](https://www.figma.com/)
 
+# 🧐 Artefatos
+
+- [Telas do protótipo](https://www.figma.com/file/9sv1E3Ni1IEJbIUGKpKptb/ACE-IV?node-id=0%3A1) (Figma)
+- [Documento de Requisitos](https://docs.google.com/document/d/1qIx8YwccQ5LlimZONoryeNX2JD2nnLVM/edit?usp=sharing&ouid=105969994372846157930&rtpof=true&sd=true)
 
 # :construction_worker: Site [EM DESENVOLVIMENTO]
 
-- Acesse o [Sisegupe]().
+Acesse o [Sisegupe]().
 # :bug: Issues (Problemas)
 
 Sinta-se à vontade para **registrar um novo problema** com um título e descrição respectivos no repositório [Sisegupe](https://github.com/MurylloEx/Sisegupe/issues).
