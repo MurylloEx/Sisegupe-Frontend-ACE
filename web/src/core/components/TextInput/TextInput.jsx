@@ -2,6 +2,7 @@ import React from "react";
 import {
   HStack,
   Input as ChakraInput,
+  Textarea,
   InputGroup,
   InputLeftElement,
   InputProps,
@@ -19,14 +20,20 @@ import { Button } from "../Button";
  * @param {InputProps} props
  * @returns JSX.Element
  */
-const TextInput = ({ label, hasEditableButton, isDisabled, ...props }) => {
+const TextInput = ({
+  label,
+  hasEditableButton,
+  isDisabled,
+  isTextarea,
+  ...props
+}) => {
   const { colors } = useTheme();
   const [isDisabledState, setIsDisabledState] = useState(isDisabled);
 
   const renderLabel = () => {
     return (
       label && (
-        <Text fontSize="2xl" width="30%" fontWeight="bold">
+        <Text fontSize="2xl" width="20%" fontWeight="bold">
           {label}:{" "}
         </Text>
       )
@@ -44,10 +51,12 @@ const TextInput = ({ label, hasEditableButton, isDisabled, ...props }) => {
     );
   };
 
+  const DefaultTextInput = isTextarea ? Textarea : ChakraInput;
+
   return (
     <HStack>
       {renderLabel()}
-      <ChakraInput
+      <DefaultTextInput
         {...{
           variant: "unstyled",
           color: "primary",
