@@ -2,7 +2,7 @@
    <img src="./.github/logo-upe.png" width="150"/>
 </p>
 
-<h1 align="center"> 🔖 Sisegupe </h1>
+<h1 align="center"> :mag_right: Sisegupe </h1>
 
 <p align="center">
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/MurylloEx/Sisegupe?color=0853c4">
@@ -35,7 +35,7 @@
 - [Screenshots](#camera_flash-screenshots)
 - [Tecnologias](#computer-technologies)
 - [Artefatos](#monocle_face-artefatos)
-- [Como fazer o projeto funcionar na sua máquina](#construction_worker-how-to-run)
+- [Site](#construction_worker-how-to-run)
 - [Issues (Problemas)](#bug-issues)
 
 # 📸 Screenshots
@@ -69,23 +69,13 @@ Este projeto foi feito utilizando as seguintes tecnologias:
 - [Figma](https://www.figma.com/)
 
 
-# :construction_worker: Como fazer o projeto funcionar na sua máquina
+# :construction_worker: Site [EM DESENVOLVIMENTO]
 
-Dê um Fork nesse repositório e clone na sua máquina. Dentro da página do projeto rode os seguintes comandos:
-
-```sh
-# Instale as dependências
-$ yarn # ou npm install
-
-
-# Rode a aplicação
-$ yarn start # ou npm start
-```
-
+- Acesse o [Sisegupe]().
 # :bug: Issues (Problemas)
 
 Sinta-se à vontade para **registrar um novo problema** com um título e descrição respectivos no repositório [Sisegupe](https://github.com/MurylloEx/Sisegupe/issues).
 
 # ✌ Feito com 💙 por [Luiz Gustavo](https://github.com/tonicprism/), [Muryllo Pimenta](https://github.com/MurylloEx), [Kelvin Vasconcelos](https://github.com/KelvinVasconcelos) e [Lucas Henrique](https://github.com/Wolf-gangSE)
 
-Deixe uma ⭐️ se este projeto ajudou você!
+Deixe uma ⭐️ se gostou desse projeto!
