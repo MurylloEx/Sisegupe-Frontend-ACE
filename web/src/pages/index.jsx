@@ -3,9 +3,7 @@ import { Grid, GridItem, Flex, Stack } from "@chakra-ui/react";
 
 import { useTheme } from "core/hooks";
 
-import { Carousel, Card, UserWidget } from "core/components";
-
-import MOCKED_GRAPH from "public/graph1.png";
+import { Carousel, Card } from "core/components";
 
 const CARD_HEADER_DEFAULT = 40;
 
