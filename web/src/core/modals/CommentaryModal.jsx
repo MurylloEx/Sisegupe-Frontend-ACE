@@ -1,21 +1,56 @@
 import React from "react";
-import { Modal } from "core/components";
-import { Text } from "@chakra-ui/react";
+import { Avatar, Button, Card, Modal, TextInput } from "core/components";
+import { HStack, Stack, Text, VStack } from "@chakra-ui/react";
+
+const COMMENTARIES = [
+  {
+    author: "Luiz Gustavo",
+    commentary:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. Urna cursus eget nunc scelerisque viverra mauris in.",
+  },
+  {
+    author: "Kelvin Vasconcelos",
+    commentary:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. Urna cursus eget nunc scelerisque viverra mauris in.",
+  },
+  {
+    author: "Lucas Henrique",
+    commentary:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. Urna cursus eget nunc scelerisque viverra mauris in.",
+  },
+];
+
+const ELEMENTS_SPACING = "6";
 
 const CommentaryModal = (props) => {
+  const renderCommentary = ({ author, commentary }, index) => {
+    return (
+      <Card key={`${index}`}>
+        <HStack>
+          <Avatar name={author} size="md" fontSize="md" isRandomBgColor />
+          <Text>{commentary}</Text>
+        </HStack>
+      </Card>
+    );
+  };
+
   return (
-    <Modal header="Modal title" {...props}>
-      <Text>
-        Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco
-        deserunt aute id consequat veniam incididunt duis in sint irure nisi.
-        Mollit officia cillum Lorem ullamco minim nostrud elit officia tempor
-        esse quis. Sunt ad dolore quis aute consequat. Magna exercitation
-        reprehenderit magna aute tempor cupidatat consequat elit dolor
-        adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit
-        duis sit officia eiusmod Lorem aliqua enim laboris do dolor eiusmod. Et
-        mollit incididunt nisi consectetur esse laborum eiusmod pariatur
-        proident Lorem eiusmod et. Culpa deserunt nostrud ad veniam.
-      </Text>
+    <Modal header="Comentários" size="4xl" {...props}>
+      <Stack flexDirection="column" spacing={ELEMENTS_SPACING}>
+        <VStack spacing={ELEMENTS_SPACING}>
+          {COMMENTARIES.map(renderCommentary)}
+        </VStack>
+        <Stack direction="column" spacing={ELEMENTS_SPACING}>
+          <TextInput
+            bg="white"
+            p={5}
+            isTextarea
+            placeholder="Adicionar um comentário"
+            rows="10"
+          />
+          <Button>Comentar</Button>
+        </Stack>
+      </Stack>
     </Modal>
   );
 };
