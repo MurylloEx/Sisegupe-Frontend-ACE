@@ -45,9 +45,7 @@ const MyProfile = () => {
         />
       </Stack>
       <Box height="10" />
-      <Button width="30%" alignSelf="flex-end">
-        Salvar
-      </Button>
+      <Button>Salvar</Button>
     </Flex>
   );
 };
