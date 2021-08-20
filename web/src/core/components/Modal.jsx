@@ -8,19 +8,26 @@ import {
   ModalCloseButton,
 } from "@chakra-ui/react";
 
-const Modal = ({ isOpen, onClose, header, children, footer, ...props }) => {
+const Modal = ({
+  isOpen,
+  onClose,
+  header,
+  children,
+  footer,
+  bg = "background",
+  ...props
+}) => {
   return (
     <>
       <ChakraModal
         onClose={onClose}
         isOpen={isOpen}
         isCentered
-        size="full"
         m={100}
         {...props}
       >
-        <ModalOverlay p={100} />
-        <ModalContent>
+        <ModalOverlay />
+        <ModalContent bg={bg}>
           <ModalHeader>{header}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>{children}</ModalBody>
