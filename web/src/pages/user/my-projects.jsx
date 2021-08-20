@@ -1,16 +1,31 @@
 import React from "react";
-import { AddProjectButton, ProjectsWidget } from "core/components";
-import { VStack } from "@chakra-ui/react";
+import AddCircleIcon from "@material-ui/icons/AddCircle";
+import { VStack, useDisclosure } from "@chakra-ui/react";
+import { useRouter } from "next/router";
+
+import { Button, ProjectsWidget } from "core/components";
 import { MockedData } from "core/utils";
 
 const { DATA } = MockedData;
 
 const MyProjects = () => {
+  const navigation = useRouter();
+
+  const onClickNavigateToAddProjects = () =>
+    navigation.push("/user/add-project");
+
   return (
-    <VStack spacing="10">
-      <ProjectsWidget projects={DATA} />
-      <AddProjectButton />
-    </VStack>
+    <>
+      <VStack spacing="10">
+        <ProjectsWidget projects={DATA} />
+        <Button.Outlined
+          icon={(props) => <AddCircleIcon {...props} />}
+          onClick={onClickNavigateToAddProjects}
+        >
+          Adicionar um novo projeto
+        </Button.Outlined>
+      </VStack>
+    </>
   );
 };
 
