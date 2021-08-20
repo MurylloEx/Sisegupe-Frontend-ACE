@@ -33,7 +33,7 @@ const TextInput = ({
   const renderLabel = () => {
     return (
       label && (
-        <Text fontSize="2xl" width="20%" fontWeight="bold">
+        <Text fontSize="2xl" width="25%" fontWeight="bold">
           {label}:{" "}
         </Text>
       )
@@ -61,8 +61,8 @@ const TextInput = ({
           variant: "unstyled",
           color: "primary",
           focusBorderColor: "primary",
-          fontSize: "2xl",
-          _placeholder: { color: colors.secondary },
+          fontSize: "1xl",
+          _placeholder: { color: colors.grayMedium },
         }}
         isDisabled={isDisabledState}
         {...props}
