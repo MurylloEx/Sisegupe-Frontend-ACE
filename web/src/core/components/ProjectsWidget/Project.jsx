@@ -23,8 +23,9 @@ const Project = ({ project, ...props }) => {
             <Card.TextHeader
               fontColor="primary"
               textAlign="left"
-              fontSize="40"
-              p={0}
+              fontSize="22"
+              py={2}
+              px={0}
               bold
             >
               {title}
