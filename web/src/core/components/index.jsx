@@ -6,12 +6,13 @@ export { default as CardHeaderWithText } from "./Card/TextHeader";
 export { default as UserWidget } from "./UserWidget";
 export { default as AvatarComponent } from "./Avatar";
 export { default as Image } from "./Image";
-export { default as AddProjectButton } from "./AddProjectButton";
+export { default as Modal } from "./Modal";
 
-export * from "./Carousel";
 export * as Graphs from "./Graphs";
+export * from "./Carousel";
 export * from "./Card";
 export * from "./TextInput";
 export * from "./Button";
 export * from "./Tag";
 export * from "./ProjectsWidget";
+export * from "./Select";
