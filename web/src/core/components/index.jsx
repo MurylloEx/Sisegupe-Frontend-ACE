@@ -4,7 +4,7 @@ export { default as Logo } from "./Logo";
 export { default as CardBodyText } from "./Card/TextBody";
 export { default as CardHeaderWithText } from "./Card/TextHeader";
 export { default as UserWidget } from "./UserWidget";
-export { default as AvatarComponent } from "./Avatar";
+export { default as Avatar } from "./Avatar";
 export { default as Image } from "./Image";
 export { default as Modal } from "./Modal";
 
