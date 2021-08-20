@@ -11,7 +11,7 @@ const DEFAULT_VALUES = {
 
 const MyProfile = () => {
   return (
-    <Flex height="100%" flexDir="column" pt="48">
+    <Stack height="100%" direction="column" spacing="20" pt="48">
       <Stack spacing="10">
         <TextInput
           defaultValue={DEFAULT_VALUES.name}
@@ -44,9 +44,11 @@ const MyProfile = () => {
           isDisabled
         />
       </Stack>
-      <Box height="10" />
-      <Button>Salvar</Button>
-    </Flex>
+
+      <Button alignSelf="flex-end" bg="success">
+        Confirmar alterações
+      </Button>
+    </Stack>
   );
 };
 
