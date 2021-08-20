@@ -2,6 +2,7 @@ import React from "react";
 import { Button as ChakraButton, ButtonGroup } from "@chakra-ui/react";
 import { Constants } from "core/utils";
 import IconButton from "./Icon";
+import Outlined from "./Outlined";
 
 const Button = ({ children, ...props }) => {
   const { disabledDefaultBg } = Constants;
@@ -26,5 +27,6 @@ const Button = ({ children, ...props }) => {
 
 Button.Group = ButtonGroup;
 Button.Icon = IconButton;
+Button.Outlined = Outlined;
 
 export default Button;
