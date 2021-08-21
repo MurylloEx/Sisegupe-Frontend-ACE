@@ -16,14 +16,14 @@ const AddProject = () => {
         borderWidth={3}
         p={5}
         label="Nome(s)"
-        placeholder="Digite aqui o seu nome"
+        placeholder="Digite aqui os nomes dos integrantes do projeto."
       />
       <TextInput
         variant="outline"
         borderWidth={3}
         p={5}
         label="Título"
-        placeholder="Digite aqui o título do seu projeto"
+        placeholder="Digite aqui o título do seu projeto."
       />
       <TextInput
         variant="outline"
@@ -31,17 +31,17 @@ const AddProject = () => {
         p={5}
         label="Descrição"
         isTextarea
-        placeholder="Adicione uma breve descrição sobre o seu projeto"
+        placeholder="Adicione uma breve descrição sobre o seu projeto."
         rows="10"
       />
       <Select
         label="Cursos"
-        placeholder="Selecione o curso que você realizou na UPE"
+        placeholder="Selecione o curso que você realizou na UPE."
         items={COURSES_DATA}
       />
       <Select
         label="Status"
-        placeholder="Selecione o status do seu projeto"
+        placeholder="Selecione o status do seu projeto."
         items={STATUS_DATA}
       />
       <Button.Outlined icon={(props) => <DescriptionIcon {...props} />}>
