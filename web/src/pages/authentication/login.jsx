@@ -20,8 +20,8 @@ const Login = () => {
       spacing="10"
       fontWeight="bold"
     >
-      <Text textAlign="center" fontSize="2xl">
-        Login
+      <Text textAlign="center" fontSize="3xl">
+        Seja bem vindo(a) ao SISEGUPE!
       </Text>
       <TextInput
         variant="outline"
@@ -41,13 +41,12 @@ const Login = () => {
         type="password"
         leftIcon={<Lock />}
       />
-      <Stack>
-        <Button bg="success" disabled>
-          Entrar
-        </Button>
-        <Button onClick={onClickNavigateToSignUpScreen}>
-          Realizar cadastro
-        </Button>
+      <Stack spacing="6">
+        <Button bg="success">Entrar</Button>
+        <Stack direction="column">
+          <Text color="grayMedium"> Ainda não possui uma conta?</Text>
+          <Button onClick={onClickNavigateToSignUpScreen}>Criar conta</Button>
+        </Stack>
       </Stack>
     </Stack>
   );
