@@ -9,10 +9,9 @@ import { MockedData } from "core/utils";
 const { DATA } = MockedData;
 
 const MyProjects = () => {
-  const navigation = useRouter();
+  const router = useRouter();
 
-  const onClickNavigateToAddProjects = () =>
-    navigation.push("/user/add-project");
+  const onClickNavigateToAddProjects = () => router.push("/user/add-project");
 
   return (
     <>
