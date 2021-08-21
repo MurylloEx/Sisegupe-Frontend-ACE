@@ -14,7 +14,7 @@ const MainLayout = ({ children }) => {
   const { colors } = useTheme();
   const { type } = children;
   const { configs } = type ?? {};
-  const { pageTitle, hasUserWidget } = configs;
+  const { pageTitle = "", hasUserWidget = true } = configs ?? {};
 
   const defaultStyles = {
     bg: colors.background,
