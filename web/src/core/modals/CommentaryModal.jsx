@@ -18,6 +18,11 @@ const COMMENTARIES = [
     commentary:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. Urna cursus eget nunc scelerisque viverra mauris in.",
   },
+  {
+    author: "Muryllo Pimenta",
+    commentary:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. Urna cursus eget nunc scelerisque viverra mauris in.",
+  },
 ];
 
 const ELEMENTS_SPACING = "6";
@@ -35,7 +40,7 @@ const CommentaryModal = (props) => {
   };
 
   return (
-    <Modal header="Comentários" size="4xl" {...props}>
+    <Modal header="Comentários" size="4xl" scrollBehavior="inside" {...props}>
       <Stack flexDirection="column" spacing={ELEMENTS_SPACING}>
         <VStack spacing={ELEMENTS_SPACING}>
           {COMMENTARIES.map(renderCommentary)}
