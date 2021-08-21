@@ -1,6 +1,6 @@
 import NextLink from "next/link";
 import { Box, Flex, HStack, Link, Icon } from "@chakra-ui/react";
-import { Home, Info, ShowChart } from "@material-ui/icons";
+import { Home, Info, ShowChart, PersonAdd } from "@material-ui/icons";
 
 import { Constants } from "core/utils";
 
@@ -11,6 +11,7 @@ const PAGES = [
   { link: "/", linkName: "Inicio", icon: Home },
   { link: "/home/projects", linkName: "Projetos", icon: ShowChart },
   { link: Constants.GitHubRepositoryLink, linkName: "Sobre", icon: Info },
+  { link: "/authentication/login", linkName: "Login", icon: PersonAdd },
 ];
 
 const NavLink = ({ icon, linkName, colors, link }) => (
