@@ -1,6 +1,7 @@
 import React from "react";
 import { HStack, useDisclosure } from "@chakra-ui/react";
 import ForumIcon from "@material-ui/icons/Forum";
+import { useRouter } from "next/router";
 
 import { useTheme } from "core/hooks";
 import { CommentaryModal } from "core/modals";
@@ -10,9 +11,12 @@ import { Tag } from "../Tag";
 import { Button } from "../Button";
 
 const Project = ({ project, ...props }) => {
-  const { status, title, content } = project;
+  const { status, title, content, id } = project;
   const { colors } = useTheme();
   const { isOpen, onClose, onOpen } = useDisclosure();
+  const router = useRouter();
+
+  const onClickNavigateToProject = () => router.push(`/home/projects/${id}`);
 
   return (
     <>
@@ -41,7 +45,9 @@ const Project = ({ project, ...props }) => {
               }
               onClick={onOpen}
             />
-            <Button width="20%">Saiba mais</Button>
+            <Button width="20%" onClick={onClickNavigateToProject}>
+              Saiba mais
+            </Button>
           </HStack>
         )}
         mb={4}
