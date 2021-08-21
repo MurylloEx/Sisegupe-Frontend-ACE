@@ -11,7 +11,6 @@ const PAGES = [
   { link: "/", linkName: "Inicio", icon: Home },
   { link: "/home/projects", linkName: "Projetos", icon: ShowChart },
   { link: Constants.GitHubRepositoryLink, linkName: "Sobre", icon: Info },
-  { link: "/authentication/login", linkName: "Login", icon: PersonAdd },
 ];
 
 const NavLink = ({ icon, linkName, colors, link }) => (
