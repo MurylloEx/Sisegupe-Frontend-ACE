@@ -8,10 +8,12 @@ import {
   InputProps,
   InputRightElement,
   Text,
+  Box,
+  Stack,
 } from "@chakra-ui/react";
 
 import { useTheme } from "core/hooks";
-import { Create } from "@material-ui/icons";
+import { Create, Visibility, VisibilityOff } from "@material-ui/icons";
 import { useState } from "react";
 import { Button } from "../Button";
 
@@ -25,22 +27,32 @@ const TextInput = ({
   hasEditableButton,
   isDisabled,
   isTextarea,
+  leftIcon,
+  type,
   ...props
 }) => {
   const { colors } = useTheme();
   const [isDisabledState, setIsDisabledState] = useState(isDisabled);
+  const [isShowingPassword, setIsShowingPassword] = useState(false);
+  const isInputTypePassword = type === "password";
 
-  const renderLabel = () => {
-    return (
-      label && (
-        <Text fontSize="2xl" width="25%" fontWeight="bold">
-          {label}:{" "}
-        </Text>
-      )
-    );
+  const renderLeftElement = () => {
+    const icon = isShowingPassword ? <Visibility /> : <VisibilityOff />;
+
+    if (isInputTypePassword) {
+      return (
+        <Button.Icon
+          icon={icon}
+          onClick={() => setIsShowingPassword((prevState) => !prevState)}
+        />
+      );
+    }
+    if (leftIcon) {
+      return <Box mx={2}>{leftIcon}</Box>;
+    }
   };
 
-  const renderEditableButton = () => {
+  const renderRightElement = () => {
     return (
       hasEditableButton && (
         <Button.Icon
@@ -51,24 +63,35 @@ const TextInput = ({
     );
   };
 
+  const showPassword = isShowingPassword ? "text" : "password";
+  const textInputType = isInputTypePassword ? showPassword : type;
+
   const DefaultTextInput = isTextarea ? Textarea : ChakraInput;
 
   return (
-    <HStack>
-      {renderLabel()}
-      <DefaultTextInput
-        {...{
-          variant: "unstyled",
-          color: "primary",
-          focusBorderColor: "primary",
-          fontSize: "1xl",
-          _placeholder: { color: colors.grayMedium },
-        }}
-        isDisabled={isDisabledState}
-        {...props}
-      />
-      {renderEditableButton()}
-    </HStack>
+    <Stack>
+      {label && (
+        <Text fontSize="2xl" width="25%" fontWeight="bold">
+          {label}
+        </Text>
+      )}
+      <HStack>
+        {renderLeftElement()}
+        <DefaultTextInput
+          {...{
+            variant: "unstyled",
+            color: "primary",
+            focusBorderColor: "primary",
+            fontSize: "1xl",
+            _placeholder: { color: colors.grayMedium },
+          }}
+          isDisabled={isDisabledState}
+          type={textInputType}
+          {...props}
+        />
+        {renderRightElement()}
+      </HStack>
+    </Stack>
   );
 };
 
