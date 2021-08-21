@@ -43,10 +43,7 @@ const Login = () => {
       />
       <Stack spacing="6">
         <Button bg="success">Entrar</Button>
-        <Stack direction="column">
-          <Text color="grayMedium"> Ainda não possui uma conta?</Text>
-          <Button onClick={onClickNavigateToSignUpScreen}>Criar conta</Button>
-        </Stack>
+        <Button onClick={onClickNavigateToSignUpScreen}>Criar conta</Button>
       </Stack>
     </Stack>
   );
