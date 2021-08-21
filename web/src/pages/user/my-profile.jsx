@@ -12,7 +12,7 @@ const DEFAULT_VALUES = {
 
 const MyProfile = () => {
   return (
-    <Stack height="100%" direction="column" spacing="20" pt="24">
+    <Stack height="100%" direction="column" spacing="20" pt="20">
       <Stack spacing="10">
         <TextInput
           defaultValue={DEFAULT_VALUES.name}
