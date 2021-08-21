@@ -1,4 +1,4 @@
-import { Select as ChakraSelect, Text, HStack } from "@chakra-ui/react";
+import { Select as ChakraSelect, Text, HStack, Stack } from "@chakra-ui/react";
 
 const Select = ({ items, defaultValue, label, ...props }) => {
   const renderOptionElement = (value, index) => (
@@ -11,14 +11,14 @@ const Select = ({ items, defaultValue, label, ...props }) => {
     return (
       label && (
         <Text fontSize="2xl" width="20%" fontWeight="bold">
-          {label}:{" "}
+          {label}
         </Text>
       )
     );
   };
 
   return (
-    <HStack>
+    <Stack>
       {renderLabel()}
       <ChakraSelect
         borderWidth={3}
@@ -30,7 +30,7 @@ const Select = ({ items, defaultValue, label, ...props }) => {
       >
         {items.map(renderOptionElement)}
       </ChakraSelect>
-    </HStack>
+    </Stack>
   );
 };
 
