@@ -2,7 +2,7 @@ import React from "react";
 import Image from "./Image";
 import LogoImage from "../../../public/logo.png";
 
-const LOGO_SIZE = 50;
+const LOGO_SIZE = 40;
 
 const Logo = () => {
   return (
@@ -10,7 +10,7 @@ const Logo = () => {
       src={LogoImage}
       alt="upe-logo"
       height={LOGO_SIZE}
-      width={LOGO_SIZE * 2.4}
+      width={LOGO_SIZE * 2.2}
     />
   );
 };
