@@ -1,15 +1,11 @@
 import React from "react";
 import { Grid, GridItem, Flex, Stack } from "@chakra-ui/react";
 
-import { useTheme } from "core/hooks";
-
 import { Carousel, Card } from "core/components";
 
 const CARD_HEADER_DEFAULT = 40;
 
 const HomePage = () => {
-  const { colors } = useTheme();
-
   return (
     <Grid templateRows="0.5fr 2fr">
       <GridItem>
@@ -23,7 +19,7 @@ const HomePage = () => {
             <Stack>
               <Card
                 header={() => (
-                  <Card.TextHeader fontColor={colors.grayMedium} bold>
+                  <Card.TextHeader fontColor="grayMedium" bold>
                     Todos
                   </Card.TextHeader>
                 )}
@@ -34,7 +30,7 @@ const HomePage = () => {
               </Card>
               <Card
                 header={() => (
-                  <Card.TextHeader fontColor={colors.grayMedium} bold>
+                  <Card.TextHeader fontColor="grayMedium" bold>
                     Em andamento
                   </Card.TextHeader>
                 )}
@@ -45,7 +41,7 @@ const HomePage = () => {
               </Card>
               <Card
                 header={() => (
-                  <Card.TextHeader fontColor={colors.grayMedium} bold>
+                  <Card.TextHeader fontColor="grayMedium" bold>
                     Concluídos
                   </Card.TextHeader>
                 )}
