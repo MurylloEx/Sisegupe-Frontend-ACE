@@ -7,11 +7,12 @@ const DEFAULT_VALUES = {
   name: "Luiz Gustavo",
   email: "luiz.matias@upe.br",
   telefone: "81 99999-9999",
+  senha: "Luiz123!",
 };
 
 const MyProfile = () => {
   return (
-    <Stack height="100%" direction="column" spacing="20" pt="48">
+    <Stack height="100%" direction="column" spacing="20" pt="24">
       <Stack spacing="10">
         <TextInput
           defaultValue={DEFAULT_VALUES.name}
@@ -41,6 +42,16 @@ const MyProfile = () => {
           p={5}
           hasEditableButton
           label="Telefone"
+          isDisabled
+        />
+        <TextInput
+          defaultValue={DEFAULT_VALUES.senha}
+          type="password"
+          variant="outline"
+          borderWidth={3}
+          p={5}
+          hasEditableButton
+          label="Senha"
           isDisabled
         />
       </Stack>
