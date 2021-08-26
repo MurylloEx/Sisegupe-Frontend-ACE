@@ -7,6 +7,7 @@ const Types = {
  * @typedef User
  * @property {string} name
  * @property {string} email
+ * @property {string} password
  * @property {string} token
  */
 
@@ -35,6 +36,7 @@ const Actions = {
 const INITIAL_STATE = {
   name: undefined,
   email: undefined,
+  password: undefined,
   token: undefined,
 };
 
