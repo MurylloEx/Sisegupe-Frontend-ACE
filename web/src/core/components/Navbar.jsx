@@ -41,6 +41,11 @@ const Navbar = () => {
     <NavLink key={linkName} icon={icon} linkName={linkName} link={link} />
   );
 
+  const onClickDoLogout = () => {
+    logout();
+    router.replace("/");
+  };
+
   return (
     <Box bg="primary" px={4}>
       <Flex alignItems="center" justifyContent="space-between">
@@ -50,20 +55,17 @@ const Navbar = () => {
         <Flex h={16} alignItems="center" justifyContent="flex-end">
           <HStack spacing={8} alignItems="center">
             {PAGES.map(renderItem)}
-            {isLogged && (
-              <Button.Icon
-                icon={<ExitToApp style={{ color: "white" }} />}
-                onClick={() => {
-                  logout();
-                  return router.replace("/");
-                }}
-              />
-            )}
             {isUserAdmin && (
               <NavLink
                 icon={SupervisorAccount}
                 linkName={"Página do administrador"}
                 link={"/admin"}
+              />
+            )}
+            {isLogged && (
+              <Button.Icon
+                icon={<ExitToApp style={{ color: "white" }} />}
+                onClick={onClickDoLogout}
               />
             )}
           </HStack>
