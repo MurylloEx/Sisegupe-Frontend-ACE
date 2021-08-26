@@ -5,14 +5,17 @@ import { Checkbox } from "@material-ui/core";
 import { useRouter } from "next/router";
 
 import { Button, Modal, TextInput } from "core/components";
-import { useLogin, useStorage, useUser } from "core/hooks";
+import { useForm, useLogin, useStorage, useUser } from "core/hooks";
 
 const BEARER_TOKEN = "@sisegupe/bearer-token";
+
+const INITIAL_VALUES = { email: "", password: "" };
 
 const LoginModal = (props) => {
   const { onClose } = props;
   const router = useRouter();
   const [willSaveCredentials, setWillSaveCredentials] = useState(false);
+  const [{ fields }, { updateField }] = useForm(INITIAL_VALUES);
 
   const [setItem] = useStorage();
 
@@ -48,6 +51,8 @@ const LoginModal = (props) => {
     return;
   }, [isSuccess, login, onSaveCredentials, response, router]);
 
+  console.log(fields);
+
   return (
     <Modal header="Faça login" size="2xl" scrollBehavior="inside" {...props}>
       <Stack flexDir="column" justify="start">
@@ -59,6 +64,8 @@ const LoginModal = (props) => {
               p={5}
               placeholder="E-mail"
               leftIcon={<Email />}
+              value={fields.email}
+              onChange={(e) => updateField("email", e.target.value)}
             />
 
             <TextInput
@@ -70,6 +77,8 @@ const LoginModal = (props) => {
               placeholder="Senha"
               type="password"
               leftIcon={<Lock />}
+              value={fields.password}
+              onChange={(e) => updateField("password", e.target.value)}
             />
 
             <HStack>
