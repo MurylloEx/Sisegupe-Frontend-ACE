@@ -1,21 +1,22 @@
 import React from "react";
 import { Stack } from "@chakra-ui/react";
 
-import { Button, TextInput } from "core/components";
-
-const DEFAULT_VALUES = {
-  name: "Luiz Gustavo",
-  email: "luiz.matias@upe.br",
-  telefone: "81 99999-9999",
-  senha: "Luiz123!",
-};
+import { Button, Loading, TextInput } from "core/components";
+import { useUser } from "core/hooks";
+import { ROLES } from "core/utils/constants";
 
 const MyProfile = () => {
+  const [{ name, email, password, isLogged }] = useUser();
+
+  if (!isLogged) {
+    return <Loading />;
+  }
+
   return (
     <Stack height="100%" direction="column" spacing="20" pt="20">
       <Stack spacing="10">
         <TextInput
-          defaultValue={DEFAULT_VALUES.name}
+          defaultValue={name}
           variant="outline"
           borderWidth={3}
           p={5}
@@ -23,8 +24,9 @@ const MyProfile = () => {
           hasEditableButton
           isDisabled
         />
+
         <TextInput
-          defaultValue={DEFAULT_VALUES.email}
+          defaultValue={email}
           type="email"
           variant="outline"
           borderWidth={3}
@@ -35,17 +37,7 @@ const MyProfile = () => {
         />
 
         <TextInput
-          defaultValue={DEFAULT_VALUES.telefone}
-          type="tel"
-          variant="outline"
-          borderWidth={3}
-          p={5}
-          hasEditableButton
-          label="Telefone"
-          isDisabled
-        />
-        <TextInput
-          defaultValue={DEFAULT_VALUES.senha}
+          defaultValue={password}
           type="password"
           variant="outline"
           borderWidth={3}
@@ -63,6 +55,10 @@ const MyProfile = () => {
   );
 };
 
-MyProfile.configs = { pageTitle: "Meu perfil", hasUserWidget: true };
+MyProfile.configs = {
+  pageTitle: "Meu perfil",
+  hasUserWidget: true,
+  role: ROLES.NORMAL_USER,
+};
 
 export default MyProfile;

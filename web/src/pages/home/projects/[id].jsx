@@ -6,6 +6,8 @@ import { ChromeReaderMode } from "@material-ui/icons";
 
 import { Button } from "core/components";
 
+import { ROLES } from "core/utils/constants";
+
 const { DATA } = MockedData;
 const FONT_SIZE = "lg";
 
@@ -52,6 +54,7 @@ const Project = () => {
 Project.configs = {
   pageTitle: "Visualizar detalhes do projeto",
   hasUserWidget: false,
+  role: ROLES.NORMAL_USER,
 };
 
 export default Project;

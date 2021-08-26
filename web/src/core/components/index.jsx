@@ -7,8 +7,10 @@ export { default as UserWidget } from "./UserWidget";
 export { default as Avatar } from "./Avatar";
 export { default as Image } from "./Image";
 export { default as Modal } from "./Modal";
+export { default as Loading } from "./Loading";
 
 export * as Graphs from "./Graphs";
+
 export * from "./Carousel";
 export * from "./Card";
 export * from "./TextInput";

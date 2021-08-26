@@ -11,14 +11,14 @@ import { Constants } from "core/utils";
  * @returns JSX.Element
  */
 const IconButton = (props) => {
-  const { disabledDefaultBg } = Constants;
+  const { DISABLED_DEFAULT_BG } = Constants;
 
   return (
     <ChakraIconButton
       {...{
-        _hover: disabledDefaultBg,
-        _focus: disabledDefaultBg,
-        _active: disabledDefaultBg,
+        _hover: DISABLED_DEFAULT_BG,
+        _focus: DISABLED_DEFAULT_BG,
+        _active: DISABLED_DEFAULT_BG,
         ...props,
       }}
     />

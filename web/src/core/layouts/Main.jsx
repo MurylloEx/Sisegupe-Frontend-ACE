@@ -2,9 +2,10 @@ import React from "react";
 import Head from "next/head";
 import { Grid, GridItem, Flex } from "@chakra-ui/react";
 
-import { useTheme } from "core/hooks";
+import { useTheme, useUser } from "core/hooks";
 
 import { UserWidget } from "core/components";
+import { PermissionGate } from "core/providers";
 /**
  *
  * @param {{children: React.ReactNode}} props
@@ -12,6 +13,8 @@ import { UserWidget } from "core/components";
  */
 const MainLayout = ({ children }) => {
   const { colors } = useTheme();
+  const [state] = useUser();
+
   const { type } = children;
   const { configs } = type ?? {};
   const { pageTitle = "", hasUserWidget = true } = configs ?? {};
@@ -31,11 +34,15 @@ const MainLayout = ({ children }) => {
       </Head>
       {hasUserWidget ? (
         <Grid templateColumns="1fr 2fr" {...defaultStyles}>
-          <UserWidget />
-          <GridItem width="-moz-max-content">{children}</GridItem>
+          <UserWidget userInfos={state} />
+          <GridItem width="-moz-max-content">
+            <PermissionGate>{children}</PermissionGate>
+          </GridItem>
         </Grid>
       ) : (
-        <Flex {...defaultStyles}>{children}</Flex>
+        <Flex {...defaultStyles}>
+          <PermissionGate>{children}</PermissionGate>
+        </Flex>
       )}
     </>
   );

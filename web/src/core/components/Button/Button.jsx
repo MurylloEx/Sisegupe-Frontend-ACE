@@ -5,7 +5,7 @@ import IconButton from "./Icon";
 import Outlined from "./Outlined";
 
 const Button = ({ children, ...props }) => {
-  const { disabledDefaultBg } = Constants;
+  const { DISABLED_DEFAULT_BG } = Constants;
 
   return (
     <ChakraButton
@@ -13,9 +13,9 @@ const Button = ({ children, ...props }) => {
         bg: "primary",
         color: "white",
         size: "lg",
-        _hover: disabledDefaultBg,
-        _focus: disabledDefaultBg,
-        _active: disabledDefaultBg,
+        _hover: DISABLED_DEFAULT_BG,
+        _focus: DISABLED_DEFAULT_BG,
+        _active: DISABLED_DEFAULT_BG,
         width: "100%",
         ...props,
       }}

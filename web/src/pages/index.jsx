@@ -2,6 +2,7 @@ import React from "react";
 import { Grid, GridItem, Flex, Stack } from "@chakra-ui/react";
 
 import { Carousel, Card } from "core/components";
+import { ROLES } from "core/utils/constants";
 
 const CARD_HEADER_DEFAULT = 40;
 
@@ -61,6 +62,10 @@ const HomePage = () => {
   );
 };
 
-HomePage.configs = { pageTitle: "Página inicial", hasUserWidget: true };
+HomePage.configs = {
+  pageTitle: "Página inicial",
+  hasUserWidget: true,
+  role: ROLES.NORMAL_USER,
+};
 
 export default HomePage;

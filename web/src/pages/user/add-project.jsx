@@ -4,6 +4,8 @@ import DescriptionIcon from "@material-ui/icons/Description";
 
 import { Button, Select, TextInput } from "core/components";
 
+import { ROLES } from "core/utils/constants";
+
 const COURSES_DATA = ["Engenharia de software", "Psicologia", "Biologia"];
 
 const STATUS_DATA = ["Em andamento", "Concluído"];
@@ -53,6 +55,10 @@ const AddProject = () => {
   );
 };
 
-AddProject.configs = { pageTitle: "Adicionar projeto", hasUserWidget: true };
+AddProject.configs = {
+  pageTitle: "Adicionar projeto",
+  hasUserWidget: true,
+  role: ROLES.NORMAL_USER,
+};
 
 export default AddProject;

@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import usePostRequest from "./usePostRequest";
+import usePostRequest from "../usePostRequest";
 
 const SIGN_UP_ENDPOINT = "";
 

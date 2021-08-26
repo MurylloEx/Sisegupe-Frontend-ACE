@@ -10,7 +10,7 @@ import { Button } from "./Button";
 const PAGES = [
   { link: "/", linkName: "Inicio", icon: Home },
   { link: "/home/projects", linkName: "Projetos", icon: ShowChart },
-  { link: Constants.GitHubRepositoryLink, linkName: "Sobre", icon: Info },
+  { link: Constants.GITHUB_REPOSITORY_LINK, linkName: "Sobre", icon: Info },
 ];
 
 const NavLink = ({ icon, linkName, link }) => (

@@ -1,3 +1,5 @@
+import { ROLES } from "core/utils/constants";
+
 const Types = {
   LOGIN: "@user/login",
   LOGOUT: "@user/logout",
@@ -9,6 +11,7 @@ const Types = {
  * @property {string} email
  * @property {string} password
  * @property {string} token
+ * @property {string} role
  */
 
 /**
@@ -33,11 +36,22 @@ const Actions = {
 /**
  * @typedef {User} UserReducerState
  */
+// const INITIAL_STATE = {
+//   name: undefined,
+//   email: undefined,
+//   password: undefined,
+//   token: undefined,
+//   role: undefined,
+//   isLogged: undefined
+// };
+
 const INITIAL_STATE = {
-  name: undefined,
-  email: undefined,
-  password: undefined,
-  token: undefined,
+  name: "Luiz Gustavo",
+  email: "teste@test.com",
+  password: "Teste123!",
+  token: "1234567890",
+  role: ROLES.NORMAL_USER,
+  isLogged: true,
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {

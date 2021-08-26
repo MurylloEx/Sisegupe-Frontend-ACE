@@ -68,6 +68,8 @@ const UserWidget = ({ userInfos }) => {
     );
   }
 
+  const { name } = userInfos;
+
   return (
     <GridItem width="-moz-max-content">
       <Flex
@@ -78,7 +80,7 @@ const UserWidget = ({ userInfos }) => {
         p={4}
         pt="48"
       >
-        <Avatar name="Luiz Gustavo" />
+        <Avatar name={name} />
         <Box mb="10" />
         <Link href={MY_PROFILE_HREF} passHref>
           <Button mb={4} width="50%">
