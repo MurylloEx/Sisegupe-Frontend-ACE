@@ -8,7 +8,7 @@ const ProjectsWidget = ({ projects, isAdmin = false }) => {
 
     return (
       <React.Fragment key={`${index}`}>
-        <Project project={project} />
+        <Project project={project} isAdmin={isAdmin} />
         {!isLastElement && <Box height="10" />}
       </React.Fragment>
     );
@@ -16,7 +16,6 @@ const ProjectsWidget = ({ projects, isAdmin = false }) => {
 
   return (
     <Flex height="100%" flexDir="column">
-      {isAdmin && <Text>Sou admin</Text>}
       {projects.map(renderProject)}
     </Flex>
   );

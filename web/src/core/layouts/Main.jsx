@@ -13,7 +13,7 @@ import { PermissionGate } from "core/providers";
  */
 const MainLayout = ({ children }) => {
   const { colors } = useTheme();
-  const [state] = useUser();
+  const [{ name: userName }] = useUser();
 
   const { type } = children;
   const { configs } = type ?? {};
@@ -34,7 +34,7 @@ const MainLayout = ({ children }) => {
       </Head>
       {hasUserWidget ? (
         <Grid templateColumns="1fr 2fr" {...defaultStyles}>
-          <UserWidget userInfos={state} />
+          <UserWidget userName={userName} />
           <GridItem width="-moz-max-content">
             <PermissionGate>{children}</PermissionGate>
           </GridItem>

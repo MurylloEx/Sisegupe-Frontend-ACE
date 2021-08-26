@@ -9,7 +9,7 @@ import { LoginModal, SignUpModal } from "core/modals";
 const MY_PROFILE_HREF = "/user/my-profile";
 const MY_PROJECTS_HREF = "/user/my-projects";
 
-const UserWidget = ({ userInfos }) => {
+const UserWidget = ({ userName }) => {
   const { colors } = useTheme();
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
   const [isOpenSignUpModal, setIsOpenSignUpModal] = useState(false);
@@ -20,7 +20,7 @@ const UserWidget = ({ userInfos }) => {
   const onOpenLoginModal = () => setIsOpenLoginModal(true);
   const onOpenSignUpModal = () => setIsOpenSignUpModal(true);
 
-  if (!userInfos) {
+  if (!userName) {
     return (
       <>
         <GridItem width="-moz-max-content">
@@ -68,8 +68,6 @@ const UserWidget = ({ userInfos }) => {
     );
   }
 
-  const { name } = userInfos;
-
   return (
     <GridItem width="-moz-max-content">
       <Flex
@@ -80,7 +78,7 @@ const UserWidget = ({ userInfos }) => {
         p={4}
         pt="48"
       >
-        <Avatar name={name} />
+        <Avatar name={userName} />
         <Box mb="10" />
         <Link href={MY_PROFILE_HREF} passHref>
           <Button mb={4} width="50%">

@@ -1,11 +1,20 @@
 import NextLink from "next/link";
 import { Box, Flex, HStack, Link, Icon } from "@chakra-ui/react";
-import { Home, Info, ShowChart, ExitToApp } from "@material-ui/icons";
+import {
+  Home,
+  Info,
+  ShowChart,
+  ExitToApp,
+  SupervisorAccount,
+} from "@material-ui/icons";
 
 import { Constants } from "core/utils";
 
 import Logo from "./Logo";
 import { Button } from "./Button";
+import { useRouter } from "next/router";
+import { useUser } from "core/hooks";
+import { ROLES } from "core/utils/constants";
 
 const PAGES = [
   { link: "/", linkName: "Inicio", icon: Home },
@@ -23,6 +32,11 @@ const NavLink = ({ icon, linkName, link }) => (
 );
 
 const Navbar = () => {
+  const [{ isLogged, role }, { logout }] = useUser();
+  const router = useRouter();
+
+  const isUserAdmin = role === ROLES.ADMIN;
+
   const renderItem = ({ linkName, icon, link }) => (
     <NavLink key={linkName} icon={icon} linkName={linkName} link={link} />
   );
@@ -36,7 +50,22 @@ const Navbar = () => {
         <Flex h={16} alignItems="center" justifyContent="flex-end">
           <HStack spacing={8} alignItems="center">
             {PAGES.map(renderItem)}
-            {/* <Button.Icon icon={<ExitToApp style={{ color: "white" }} />} /> */}
+            {isLogged && (
+              <Button.Icon
+                icon={<ExitToApp style={{ color: "white" }} />}
+                onClick={() => {
+                  logout();
+                  return router.replace("/");
+                }}
+              />
+            )}
+            {isUserAdmin && (
+              <NavLink
+                icon={SupervisorAccount}
+                linkName={"Página do administrador"}
+                link={"/admin"}
+              />
+            )}
           </HStack>
         </Flex>
       </Flex>

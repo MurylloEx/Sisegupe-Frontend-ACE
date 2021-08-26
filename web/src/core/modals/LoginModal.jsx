@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 
 import { Button, Modal, TextInput } from "core/components";
 import { useForm, useLogin, useStorage, useUser } from "core/hooks";
+import { ROLES } from "core/utils/constants";
 
 const BEARER_TOKEN = "@sisegupe/bearer-token";
 
@@ -41,9 +42,9 @@ const LoginModal = (props) => {
 
   useEffect(() => {
     if (isSuccess && response) {
-      const { name, email, password, token } = response ?? {};
+      const { name, email, password, token, role } = response ?? {};
 
-      login({ name, email, password, token });
+      login({ name, email, password, token, role, isLogged: true });
       onSaveCredentials(token);
 
       return router.reload(window.location.pathname);
@@ -51,7 +52,16 @@ const LoginModal = (props) => {
     return;
   }, [isSuccess, login, onSaveCredentials, response, router]);
 
-  console.log(fields);
+  const onClickDoLogin = () => {
+    login({
+      name: "Luiz Gustavo",
+      email: "teste@teste.com",
+      password: "Teste123!",
+      token: "1234567890",
+      role: ROLES.NORMAL_USER,
+      isLogged: true,
+    });
+  };
 
   return (
     <Modal header="Faça login" size="2xl" scrollBehavior="inside" {...props}>
@@ -91,7 +101,7 @@ const LoginModal = (props) => {
           </Stack>
 
           <Stack direction="row" spacing="6">
-            <Button bg="success" isLoading={isLoading}>
+            <Button bg="success" isLoading={isLoading} onClick={onClickDoLogin}>
               Entrar
             </Button>
             <Button onClick={onClose}>Voltar</Button>

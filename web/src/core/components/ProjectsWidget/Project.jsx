@@ -9,14 +9,54 @@ import { CommentaryModal } from "core/modals";
 import { Card } from "../Card";
 import { Tag } from "../Tag";
 import { Button } from "../Button";
+import { CloseIcon, CheckIcon } from "@chakra-ui/icons";
 
-const Project = ({ project, ...props }) => {
+const Project = ({ project, isAdmin, ...props }) => {
   const { status, title, content, id } = project;
   const { colors } = useTheme();
   const { isOpen, onClose, onOpen } = useDisclosure();
   const router = useRouter();
 
   const onClickNavigateToProject = () => router.push(`/home/projects/${id}`);
+
+  const renderFooter = () => {
+    if (isAdmin) {
+      return (
+        <HStack justify="space-between" m={4} spacing="10">
+          <HStack>
+            <Button.Icon
+              icon={
+                <CheckIcon fontSize="large" style={{ color: colors.success }} />
+              }
+              onClick={() => null}
+            ></Button.Icon>
+            <Button.Icon
+              icon={<CloseIcon fontSize="large" />}
+              style={{ color: colors.error }}
+              onClick={() => null}
+            ></Button.Icon>
+          </HStack>
+          <Button width="20%" onClick={onClickNavigateToProject}>
+            Saiba mais
+          </Button>
+        </HStack>
+      );
+    }
+
+    return (
+      <HStack justify="flex-end" m={4} spacing="10">
+        <Button.Icon
+          icon={
+            <ForumIcon fontSize="large" style={{ color: colors.primary }} />
+          }
+          onClick={onOpen}
+        />
+        <Button width="20%" onClick={onClickNavigateToProject}>
+          Saiba mais
+        </Button>
+      </HStack>
+    );
+  };
 
   return (
     <>
@@ -34,22 +74,10 @@ const Project = ({ project, ...props }) => {
             >
               {title}
             </Card.TextHeader>
-            <Tag tagType={status} />
+            {!isAdmin && <Tag tagType={status} />}
           </HStack>
         )}
-        footer={() => (
-          <HStack justify="flex-end" m={4} spacing="10">
-            <Button.Icon
-              icon={
-                <ForumIcon fontSize="large" style={{ color: colors.primary }} />
-              }
-              onClick={onOpen}
-            />
-            <Button width="20%" onClick={onClickNavigateToProject}>
-              Saiba mais
-            </Button>
-          </HStack>
-        )}
+        footer={renderFooter}
         mb={4}
         {...props}
       >

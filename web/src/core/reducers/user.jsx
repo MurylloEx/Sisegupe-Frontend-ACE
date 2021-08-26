@@ -12,6 +12,7 @@ const Types = {
  * @property {string} password
  * @property {string} token
  * @property {string} role
+ * @property {boolean} isLogged
  */
 
 /**
@@ -36,22 +37,13 @@ const Actions = {
 /**
  * @typedef {User} UserReducerState
  */
-// const INITIAL_STATE = {
-//   name: undefined,
-//   email: undefined,
-//   password: undefined,
-//   token: undefined,
-//   role: undefined,
-//   isLogged: undefined
-// };
-
 const INITIAL_STATE = {
-  name: "Luiz Gustavo",
-  email: "teste@test.com",
-  password: "Teste123!",
-  token: "1234567890",
+  name: "",
+  email: "",
+  password: "",
+  token: "",
   role: ROLES.NORMAL_USER,
-  isLogged: true,
+  isLogged: false,
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
