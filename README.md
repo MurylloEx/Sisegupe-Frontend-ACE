@@ -1,34 +1,80 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+   <img src="./.github/logo-upe.png" width="150"/>
+</p>
 
-## Getting Started
+<h1 align="center"> :mag_right: Sisegupe </h1>
 
-First, run the development server:
+<p align="center">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/MurylloEx/Sisegupe?color=0853c4">
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+  <img src="https://img.shields.io/badge/version-1.0.0-0853c4.svg?cacheSeconds=2592000" />
+  <a href="https://github.com/MurylloEx/Sisegupe/#readme">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-0853c4.svg" target="_blank" />
+  </a>
+   <a href="https://github.com/MurylloEx/Sisegupe/commits/master">
+      <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/MurylloEx/Sisegupe?color=0853c4">
+  </a>
+   <a href="https://github.com/MurylloEx/Sisegupe/stargazers">
+      <img alt="Stargazers" src="https://img.shields.io/github/stars/MurylloEx/Sisegupe?color=0853c4&logo=github">
+   </a>
+</p>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> ⏰ O **Sisegupe** é um _observatório que congrega os projetos desenvolvidos pelos alunos egressos da UPE Campus Garanhuns, oferecendo publicidade e servindo de vitrine para os egressos e seus respectivos projetos_.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+<div align="center">
+  <sub>O projeto Sisegupe foi construído com ❤︎ por
+    <a href="https://github.com/tonicprism">Luiz Gustavo, </a>
+    <a href="https://github.com/MurylloEx">Muryllo Pimenta, </a>
+    <a href="https://github.com/KelvinVasconcelos">Kelvin Vasconcelos </a>
+    <a href="https://github.com/Wolf-gangSE">e Lucas Henrique</a>
+  </sub>
+</div>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+# :pushpin: Tabela de Conteúdo
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- [Screenshots](#camera_flash-screenshots)
+- [Tecnologias](#computer-technologies)
+- [Artefatos](#monocle_face-artefatos)
+- [Site](#construction_worker-how-to-run)
+- [Issues (Problemas)](#bug-issues)
 
-## Learn More
+# 📸 Screenshots
 
-To learn more about Next.js, take a look at the following resources:
+<p align="center">
+   <img src="./.github/screenshots/home-1.png" />
+</p>
+<p align="center">
+   <img src="./.github/screenshots/home-2.png" />
+</p>
+<p align="center">
+   <img src="./.github/screenshots/projects-1.png" />
+</p>
+<p align="center">
+   <img src="./.github/screenshots/projects-2.png" />
+</p>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# :computer: Tecnologias
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Este projeto foi feito utilizando as seguintes tecnologias:
 
-## Deploy on Vercel
+- [NodeJS](https://nodejs.org/pt-br/)
+- [SQLite](https://www.sqlite.org/index.html)
+- [React](https://pt-br.reactjs.org/)
+- [NextJS](https://nextjs.org/)
+- [Figma](https://www.figma.com/)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# 🧐 Artefatos
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Telas do protótipo](https://www.figma.com/file/9sv1E3Ni1IEJbIUGKpKptb/ACE-IV?node-id=0%3A1) (Figma)
+- [Documento de Requisitos](https://docs.google.com/document/d/1qIx8YwccQ5LlimZONoryeNX2JD2nnLVM/edit?usp=sharing&ouid=105969994372846157930&rtpof=true&sd=true)
+
+# :construction_worker: Site [EM DESENVOLVIMENTO]
+
+Acesse o [Sisegupe]().
+# :bug: Issues (Problemas)
+
+Sinta-se à vontade para **registrar um novo problema** com um título e descrição respectivos no repositório [Sisegupe](https://github.com/MurylloEx/Sisegupe/issues).
+
+# ✌ Feito com 💙 por [Luiz Gustavo](https://github.com/tonicprism/), [Muryllo Pimenta](https://github.com/MurylloEx), [Kelvin Vasconcelos](https://github.com/KelvinVasconcelos) e [Lucas Henrique](https://github.com/Wolf-gangSE)
+
+Deixe uma ⭐️ se gostou desse projeto!
