@@ -1,8 +1,11 @@
 import { useCallback } from "react";
-
+/**
+ *
+ * @returns {[{getItem: (key: string) => string}, {setItem: (key: string, value: string) => void, clear: () => void}]}
+ */
 const useStorage = () => {
   const setItem = useCallback((key, value) => {
-    if (!valueName && !value) {
+    if (!key && !value) {
       throw new Error(
         "To use the setItem function from useStorage hook is necessary set the key and value."
       );
@@ -20,7 +23,11 @@ const useStorage = () => {
     return localStorage.getItem(key);
   }, []);
 
-  return [setItem, getItem];
+  const clear = useCallback(() => {
+    return localStorage.clear();
+  }, []);
+
+  return [getItem, { setItem, clear }];
 };
 
 export default useStorage;
