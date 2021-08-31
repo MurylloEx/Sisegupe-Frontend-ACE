@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Email, Lock } from "@material-ui/icons";
 import { HStack, Stack, Text } from "@chakra-ui/react";
 import { Checkbox } from "@material-ui/core";
-import { useRouter } from "next/router";
 
 import { Alert, Button, Modal, TextInput } from "core/components";
 import { useForm, useLogin, useStorage, useUser } from "core/hooks";
