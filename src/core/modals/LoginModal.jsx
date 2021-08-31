@@ -4,41 +4,38 @@ import { HStack, Stack, Text } from "@chakra-ui/react";
 import { Checkbox } from "@material-ui/core";
 import { useRouter } from "next/router";
 
-import { Button, Modal, TextInput } from "core/components";
+import { Alert, Button, Modal, TextInput } from "core/components";
 import { useForm, useLogin, useStorage, useUser } from "core/hooks";
-
-const BEARER_TOKEN = "@sisegupe/bearer-token";
+import { Constants } from "core/utils";
 
 const INITIAL_VALUES = { email: "", password: "" };
+const { LOCAL_STORAGES_LOCATIONS } = Constants;
 
 const LoginModal = (props) => {
   const { onClose } = props;
-  const router = useRouter();
-  const [{ fields }, { updateField }] = useForm(INITIAL_VALUES);
-  const [setItem] = useStorage();
-  const [, { login }] = useUser();
-  const [{ response, ...rest }, { requestLogin }] = useLogin(
-    {
-      email: "",
-      password: "",
-    },
-    {
-      onError: () => setHasError(true),
-      onSuccess: () => router.reload(),
-    }
-  );
 
-  const [willSaveCredentials, setWillSaveCredentials] = useState(false);
-  const [hasError, setHasError] = useState(false);
-
+  const [{ fields }, { getFieldProperties }] = useForm(INITIAL_VALUES);
   const { email, password } = fields;
 
-  const { error, isError, isLoading, isSuccess } = rest;
+  const [, { login }] = useUser();
+  const [, { setItem }] = useStorage();
+
+  const [{ response, ...rest }, { requestLogin }] = useLogin({
+    email,
+    password,
+  });
+
+  const [willSaveCredentials, setWillSaveCredentials] = useState(false);
+
+  const { isError, isLoading, isSuccess } = rest;
 
   const onSaveCredentials = useCallback(
-    (token) => {
+    (user) => {
       if (willSaveCredentials) {
-        setItem(BEARER_TOKEN, token);
+        setItem(
+          LOCAL_STORAGES_LOCATIONS.USER_ACCESS_CREDENTIALS,
+          JSON.stringify(user)
+        );
         return;
       }
       return;
@@ -46,42 +43,27 @@ const LoginModal = (props) => {
     [setItem, willSaveCredentials]
   );
 
-  // {
-  //   "timestamp": 1629933847461,
-  //   "status": 200,
-  //   "data": {
-  //     "token": "YjU0NWJkNWMwMGVkNGEwYTdmNTlmMTg0YTU4MDQyMTZjNWQzYTcyMWRlZTQ2NzQzNDVmNjYyOWVkNzdhYmExYmU3ZGIyNTI5YjdiMTE2MTAyNjNiNzJmMWRlMWI5YTU2Y2ZkMTg0NWRiNTNlMmZhMTUyM2I5ODJjMGQ0NjZmYzA5NmM1MzQ0YmMxOTgwNjhlZmEzYWFlMDJjZWZhYzhmY2ZhYmRkM2JiNTdlNGI3OTgxZDU2NTBkNGUwNzU0MjFjYTMwYmMzMGI1OTdiMmRlMzNmYzFlYThjOTlhZWNhNzNkYjNiNzEwYzMzZDdiYWFmNDljM2U3",
-  //     "data": {
-  //       "role": 1,
-  //       "id": "54326900-10c4-43cc-bbe1-ff56b400a6a6",
-  //       "name": "Muryllo",
-  //       "lastname": "Oliveira",
-  //       "email": "muryllo.pimenta@upe.br"
-  //     }
-  //   }
-  // }
-
   useEffect(() => {
     if (isSuccess && response) {
       const { data } = response ?? {};
       const { token, data: userData } = data ?? {};
-      const { role, id, name, lastname, email } = userData;
-
-      login({
+      const { role, id, name, email, password } = userData;
+      const user = {
         id,
-        name: `${name} ${lastname}`,
+        name,
         email,
         password,
         token,
         role,
         isLogged: true,
-      });
-      onSaveCredentials(token);
+      };
 
+      login(user);
+      onSaveCredentials(user);
       return;
     }
     return;
-  }, [isSuccess, login, onSaveCredentials, password, response, router]);
+  }, [isSuccess, login, onSaveCredentials, password, response]);
 
   const onClickDoLogin = () => {
     requestLogin();
@@ -89,17 +71,25 @@ const LoginModal = (props) => {
 
   const isButtonDisabled = !(email && password);
 
-  if (hasError) {
-    return (
-      <Modal header="Error" size="2xl" scrollBehavior="inside" {...props}>
-        <Stack flexDir="column" justify="start">
-          <Text fontSize="4xl" color="secondary" textAlign="center">
-            Algum erro inesperado ocorreu. Tente novamente mais tarde.
-          </Text>
-        </Stack>
-      </Modal>
-    );
-  }
+  const renderAlert = () => {
+    const error = {
+      status: "error",
+      body: "Eita! Ocorreu um erro ao processar a sua solicitação de login. Por favor, verifique suas credenciais de acesso e tente mais tarde!",
+    };
+
+    const success = {
+      status: "success",
+      body: "Login realizado com sucesso!",
+    };
+
+    const buildMessage = () => {
+      return isError ? error : success;
+    };
+
+    const { status, body } = buildMessage();
+
+    return (isError || isSuccess) && <Alert status={status} message={body} />;
+  };
 
   return (
     <Modal header="Faça login" size="2xl" scrollBehavior="inside" {...props}>
@@ -112,8 +102,7 @@ const LoginModal = (props) => {
               p={5}
               placeholder="E-mail"
               leftIcon={<Email />}
-              value={email}
-              onChange={(e) => updateField("email", e.target.value)}
+              {...getFieldProperties("email")}
             />
 
             <TextInput
@@ -125,8 +114,7 @@ const LoginModal = (props) => {
               placeholder="Senha"
               type="password"
               leftIcon={<Lock />}
-              value={password}
-              onChange={(e) => updateField("password", e.target.value)}
+              {...getFieldProperties("password")}
             />
 
             <HStack>
@@ -137,7 +125,7 @@ const LoginModal = (props) => {
               <Text> Lembrar senha</Text>
             </HStack>
           </Stack>
-
+          {renderAlert()}
           <Stack direction="row" spacing="6">
             <Button
               bg="success"
