@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import { useRouter } from "next/router";
 import { Box, Flex, HStack, Link, Icon } from "@chakra-ui/react";
 import {
   Home,
@@ -8,18 +9,16 @@ import {
   SupervisorAccount,
 } from "@material-ui/icons";
 
-import { Constants } from "core/utils";
+import { useStorage, useUser } from "core/hooks";
+import { ROLES, GITHUB_REPOSITORY_LINK } from "core/utils/constants";
 
 import Logo from "./Logo";
 import { Button } from "./Button";
-import { useRouter } from "next/router";
-import { useUser } from "core/hooks";
-import { ROLES } from "core/utils/constants";
 
 const PAGES = [
   { link: "/", linkName: "Inicio", icon: Home },
   { link: "/home/projects", linkName: "Projetos", icon: ShowChart },
-  { link: Constants.GITHUB_REPOSITORY_LINK, linkName: "Sobre", icon: Info },
+  { link: GITHUB_REPOSITORY_LINK, linkName: "Sobre", icon: Info },
 ];
 
 const NavLink = ({ icon, linkName, link }) => (
@@ -32,8 +31,10 @@ const NavLink = ({ icon, linkName, link }) => (
 );
 
 const Navbar = () => {
-  const [{ isLogged, role }, { logout }] = useUser();
   const router = useRouter();
+
+  const [{ isLogged, role }, { logout }] = useUser();
+  const [, { clear }] = useStorage();
 
   const isUserAdmin = role === ROLES.ADMIN;
 
@@ -43,6 +44,7 @@ const Navbar = () => {
 
   const onClickDoLogout = () => {
     logout();
+    clear();
     router.replace("/");
   };
 
