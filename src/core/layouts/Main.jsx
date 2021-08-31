@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import { Grid, GridItem, Flex } from "@chakra-ui/react";
 
-import { useTheme, useUser } from "core/hooks";
+import { useStorage, useTheme, useUser } from "core/hooks";
 
 import { UserWidget } from "core/components";
 import { PermissionGate } from "core/providers";
+import { Constants } from "core/utils";
+
+const { LOCAL_STORAGES_LOCATIONS } = Constants;
+
 /**
  *
  * @param {{children: React.ReactNode}} props
@@ -13,7 +17,10 @@ import { PermissionGate } from "core/providers";
  */
 const MainLayout = ({ children }) => {
   const { colors } = useTheme();
-  const [{ name: userName }] = useUser();
+  const [{ name: userName }, { login }] = useUser();
+  const [getItem] = useStorage();
+
+  const [userCredentials, setUserCredentials] = useState(undefined);
 
   const { type } = children;
   const { configs } = type ?? {};
@@ -26,6 +33,20 @@ const MainLayout = ({ children }) => {
     px: 10,
     py: 20,
   };
+
+  useEffect(() => {
+    setUserCredentials(
+      JSON.parse(getItem(LOCAL_STORAGES_LOCATIONS.USER_ACCESS_CREDENTIALS))
+    );
+  }, [getItem]);
+
+  useEffect(() => {
+    if (userCredentials) {
+      login(userCredentials);
+      return;
+    }
+    return;
+  }, [login, userCredentials]);
 
   return (
     <>
