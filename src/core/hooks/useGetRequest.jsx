@@ -18,8 +18,6 @@ const useGetRequest = (url, configs = {}, options = {}) => {
     headers: { Authorization: token },
   };
 
-  console.log(personalizedConfigs);
-
   return useQuery({
     ...options,
     queryKey: [url, { configs, ...personalizedConfigs }],
