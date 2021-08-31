@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import usePostRequest from "../usePostRequest";
 
-const LOGIN_ENDPOINT = "";
+const LOGIN_ENDPOINT = "/auth/login";
 
 const useLogin = ({ email, password }, options = {}) => {
   const {
