@@ -8,6 +8,7 @@ export { default as Avatar } from "./Avatar";
 export { default as Image } from "./Image";
 export { default as Modal } from "./Modal";
 export { default as Loading } from "./Loading";
+export { default as Alert } from "./Alert";
 
 export * as Graphs from "./Graphs";
 
