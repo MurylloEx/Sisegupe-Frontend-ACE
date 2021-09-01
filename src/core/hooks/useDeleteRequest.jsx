@@ -24,7 +24,7 @@ const useDeleteRequest = (url, options = {}) => {
   return useMutation((args) => {
     const { config = {}, ...data } = args ?? {};
 
-    return Api.delete(url, data, { ...config, ...personalizedConfig });
+    return Api.post(url, data, { ...personalizedConfig, ...config });
   }, options);
 };
 
