@@ -47,8 +47,6 @@ const Project = () => {
     <Spinner />;
   }
 
-  console.log(fileDocuments);
-
   return (
     <Stack spacing="10">
       <Stack>
