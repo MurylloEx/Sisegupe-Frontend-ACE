@@ -18,7 +18,6 @@ import { Button } from "./Button";
 const PAGES = [
   { link: "/", linkName: "Inicio", icon: Home },
   { link: "/home/projects", linkName: "Projetos", icon: ShowChart },
-  { link: GITHUB_REPOSITORY_LINK, linkName: "Sobre", icon: Info },
 ];
 
 const NavLink = ({ icon, linkName, link }) => (
@@ -57,6 +56,17 @@ const Navbar = () => {
         <Flex h={16} alignItems="center" justifyContent="flex-end">
           <HStack spacing={8} alignItems="center">
             {PAGES.map(renderItem)}
+            <Link
+              href={GITHUB_REPOSITORY_LINK}
+              target="_blank"
+              px={2}
+              py={1}
+              color="white"
+              rounded={"md"}
+            >
+              <Icon as={Info} mx={2} />
+              Sobre
+            </Link>
             {isUserAdmin && (
               <NavLink
                 icon={SupervisorAccount}
