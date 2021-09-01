@@ -18,7 +18,7 @@ const usePostRequest = (url, options = {}) => {
   const token = useToken();
 
   const personalizedConfig = {
-    headers: { Authorization: token },
+    headers: { Authorization: `Bearer ${token}` },
   };
 
   return useMutation((args) => {

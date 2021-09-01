@@ -15,7 +15,7 @@ const useGetRequest = (url, configs = {}, options = {}) => {
   const token = useToken();
 
   const personalizedConfigs = {
-    headers: { Authorization: token },
+    headers: { Authorization: `Bearer ${token}` },
   };
 
   return useQuery({
