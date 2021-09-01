@@ -34,7 +34,7 @@ const MyProjects = () => {
   return (
     <>
       <VStack spacing="10">
-        <ProjectsWidget projects={userProjects} />
+        <ProjectsWidget projects={userProjects} isOnMyProjects />
         <Button.Outlined
           icon={(props) => <AddCircleIcon {...props} />}
           onClick={onClickNavigateToAddProjects}

@@ -3,13 +3,22 @@ import React from "react";
 import EmptyContent from "../EmptyContent";
 import Project from "./Project";
 
-const ProjectsWidget = ({ projects, isAdmin = false, isLoading }) => {
+const ProjectsWidget = ({
+  projects,
+  isAdmin = false,
+  isLoading,
+  isOnMyProjects,
+}) => {
   const renderProject = (project, index, list) => {
     const isLastElement = index === list.length - 1;
 
     return (
       <React.Fragment key={`${index}`}>
-        <Project project={project} isAdmin={isAdmin} />
+        <Project
+          project={project}
+          isAdmin={isAdmin}
+          isOnMyProjects={isOnMyProjects}
+        />
         {!isLastElement && <Box height="10" />}
       </React.Fragment>
     );

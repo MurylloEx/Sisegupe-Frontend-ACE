@@ -15,8 +15,9 @@ import { Card } from "../Card";
 import { Tag } from "../Tag";
 import { Button } from "../Button";
 import { CloseIcon, EditIcon } from "@chakra-ui/icons";
+import Info from "../Info";
 
-const Project = ({ project, isAdmin, ...props }) => {
+const Project = ({ project, isAdmin, isOnMyProjects = false, ...props }) => {
   const { id, projectStage, summary, title, author } = project;
   const { name: authorName = "" } = author;
   const [{ name, isLogged }] = useUser();
@@ -24,9 +25,12 @@ const Project = ({ project, isAdmin, ...props }) => {
   const { colors } = useTheme();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const { mutate: deleteProject, isLoading } = useDeleteRequest(
-    `/projects/${id}`
-  );
+  const {
+    mutate: deleteProject,
+    isLoading,
+    isSuccess,
+    isError,
+  } = useDeleteRequest(`/projects/${id}/delete`);
   const [
     {
       response: commentaries = [],
@@ -92,6 +96,8 @@ const Project = ({ project, isAdmin, ...props }) => {
     <>
       <Card
         borderWidth={3}
+        maxWidth={isOnMyProjects ? "60vw" : "95vw"}
+        width={isOnMyProjects ? "60vw" : "95vw"}
         header={() => (
           <HStack justify="space-between" px={4}>
             <Card.TextHeader
@@ -116,10 +122,13 @@ const Project = ({ project, isAdmin, ...props }) => {
           textAlign="left"
           color="grayMedium"
           bold={false}
+          isTruncated
+          noOfLines={3}
         >
           {summary}
         </Card.TextBody>
       </Card>
+
       <CommentaryModal
         projectId={id}
         {...{
@@ -131,6 +140,13 @@ const Project = ({ project, isAdmin, ...props }) => {
           onClose,
           isOpen,
         }}
+      />
+
+      <Info
+        showInfo={isSuccess || isError}
+        errorMessage="Ocorreu um erro ao remover o seu projeto, por favor tente novamente mais tarde"
+        successMessage="Seu projeto foi removido com sucesso! Por favor, recarregue a página para ver essa alteração."
+        infoType={isError ? "error" : "success"}
       />
     </>
   );

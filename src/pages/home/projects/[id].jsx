@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { MockedData } from "core/utils";
-import { Link, Spinner, Stack, Text } from "@chakra-ui/react";
+import { Center, Link, Spinner, Stack, Text } from "@chakra-ui/react";
 import { ChromeReaderMode } from "@material-ui/icons";
 
 import { Button } from "core/components";
@@ -43,8 +43,13 @@ const Project = () => {
 
   const [firstDocument = {}] = fileDocuments ?? [];
   const { fileName = "" } = firstDocument;
+
   if (!projectDetails) {
-    <Spinner />;
+    return (
+      <Center width="100vw">
+        <Spinner size="xl" />
+      </Center>
+    );
   }
 
   return (
