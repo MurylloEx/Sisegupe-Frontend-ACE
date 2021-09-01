@@ -18,7 +18,7 @@ import { CloseIcon, EditIcon } from "@chakra-ui/icons";
 
 const Project = ({ project, isAdmin, ...props }) => {
   const { id, projectStage, summary, title, authorName } = project;
-  const [{ name }] = useUser();
+  const [{ name, isLogged }] = useUser();
   const { colors } = useTheme();
   const { isOpen, onClose, onOpen } = useDisclosure();
   const router = useRouter();
@@ -122,6 +122,7 @@ const Project = ({ project, isAdmin, ...props }) => {
           isLoadingCommentaries,
           isFetching,
           commentaries,
+          isLogged,
         }}
       />
     </>

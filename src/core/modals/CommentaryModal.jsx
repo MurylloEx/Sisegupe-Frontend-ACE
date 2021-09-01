@@ -22,6 +22,7 @@ const CommentaryModal = ({
   refetch,
   isLoadingCommentaries,
   isFetching,
+  isLogged,
   ...props
 }) => {
   const { mutate: doCommentary, isLoading } = usePostRequest(
@@ -79,17 +80,22 @@ const CommentaryModal = ({
       <Stack flexDirection="column" spacing={ELEMENTS_SPACING}>
         <Stack direction="column" spacing={ELEMENTS_SPACING}>
           {renderCommentaries()}
-          <TextInput
-            bg="white"
-            p={5}
-            isTextarea
-            placeholder="Adicionar um comentário"
-            rows="10"
-            {...getFieldProperties("commentary")}
-          />
-          <Button isLoading={isLoading} onClick={onClickComment}>
-            Comentar
-          </Button>
+          {isLogged && (
+            <>
+              <TextInput
+                bg="white"
+                p={5}
+                isTextarea
+                placeholder="Adicionar um comentário"
+                rows="10"
+                {...getFieldProperties("commentary")}
+              />
+
+              <Button isLoading={isLoading} onClick={onClickComment}>
+                Comentar
+              </Button>
+            </>
+          )}
         </Stack>
       </Stack>
     </Modal>
