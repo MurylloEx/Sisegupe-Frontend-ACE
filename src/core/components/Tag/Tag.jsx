@@ -4,14 +4,14 @@ import Completed from "./Completed";
 import InProgress from "./InProgress";
 /**
  *
- * @param {{tagType: 'Concluído' | 'Em andamento'}} props
+ * @param {{tagType: 1 ('Concluído')| 0 ('Em andamento')}} props
  * @returns
  */
 const Tag = ({ tagType, ...props }) => {
   const renderTag = () =>
     ({
-      ["Concluído"]: Completed,
-      ["Em andamento"]: InProgress,
+      0: InProgress,
+      1: Completed,
     }[tagType] ?? Box);
 
   const TagElement = renderTag();

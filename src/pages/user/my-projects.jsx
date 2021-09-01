@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import { VStack, useDisclosure } from "@chakra-ui/react";
 import { useRouter } from "next/router";
@@ -6,24 +6,35 @@ import { useRouter } from "next/router";
 import { Button, Loading, ProjectsWidget } from "core/components";
 import { MockedData } from "core/utils";
 import { ROLES } from "core/utils/constants";
-import { useUser } from "core/hooks";
+import { useGetAllProjects, useUser } from "core/hooks";
 
 const { DATA } = MockedData;
 
 const MyProjects = () => {
   const router = useRouter();
-  const [{ isLogged }] = useUser();
+  const [{ isLogged, name }] = useUser();
+  const [{ response: projects = [], ...rest }] = useGetAllProjects();
+
+  const [userProjects, setUserProjects] = useState([]);
+
+  useEffect(() => {
+    if (projects) {
+      setUserProjects(
+        projects.filter((project) => project.authorName === name)
+      );
+      return;
+    }
+  }, [name, projects]);
+
+  const onClickNavigateToAddProjects = () => router.push("/user/add-project");
 
   if (!isLogged) {
     return <Loading />;
   }
-
-  const onClickNavigateToAddProjects = () => router.push("/user/add-project");
-
   return (
     <>
       <VStack spacing="10">
-        <ProjectsWidget projects={DATA} />
+        <ProjectsWidget projects={userProjects} />
         <Button.Outlined
           icon={(props) => <AddCircleIcon {...props} />}
           onClick={onClickNavigateToAddProjects}

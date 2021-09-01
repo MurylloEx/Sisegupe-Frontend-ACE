@@ -1,59 +1,93 @@
-import React from "react";
-import { Avatar, Button, Card, Modal, TextInput } from "core/components";
-import { HStack, Stack, Text, VStack } from "@chakra-ui/react";
-
-const COMMENTARIES = [
-  {
-    author: "Luiz Gustavo",
-    commentary:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. Urna cursus eget nunc scelerisque viverra mauris in.",
-  },
-  {
-    author: "Kelvin Vasconcelos",
-    commentary:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. Urna cursus eget nunc scelerisque viverra mauris in.",
-  },
-  {
-    author: "Lucas Henrique",
-    commentary:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. Urna cursus eget nunc scelerisque viverra mauris in.",
-  },
-  {
-    author: "Muryllo Pimenta",
-    commentary:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. Urna cursus eget nunc scelerisque viverra mauris in.",
-  },
-];
+import React, { useCallback } from "react";
+import {
+  Avatar,
+  Button,
+  Card,
+  EmptyContent,
+  Modal,
+  TextInput,
+} from "core/components";
+import { Center, Stack, Spinner, Text, VStack, HStack } from "@chakra-ui/react";
+import { useForm, useGetCommentaries, usePostRequest } from "core/hooks";
 
 const ELEMENTS_SPACING = "6";
 
-const CommentaryModal = (props) => {
-  const renderCommentary = ({ author, commentary }, index) => {
+const INITIAL_VALUES = {
+  commentary: "",
+};
+
+const CommentaryModal = ({
+  commentaries,
+  projectId = "",
+  refetch,
+  isLoadingCommentaries,
+  isFetching,
+  ...props
+}) => {
+  const { mutate: doCommentary, isLoading } = usePostRequest(
+    `commentaries/${projectId}`
+  );
+
+  const [{ fields }, { getFieldProperties, cleanUp }] = useForm(INITIAL_VALUES);
+  const { commentary } = fields;
+
+  const onClickComment = () => {
+    doCommentary({ text: commentary });
+    cleanUp();
+    refetch();
+  };
+
+  const renderCommentary = ({ author, text, id }, _) => {
+    const { name } = author;
+
     return (
-      <Card key={`${index}`}>
-        <HStack>
-          <Avatar name={author} size="md" fontSize="md" isRandomBgColor />
-          <Text>{commentary}</Text>
+      <Card key={id}>
+        <HStack width={600}>
+          <Avatar name={name} size="md" fontSize="md" isRandomBgColor />
+          <Text>{text}</Text>
         </HStack>
       </Card>
+    );
+  };
+
+  const renderCommentaries = () => {
+    if (isLoadingCommentaries || isFetching) {
+      return (
+        <Center>
+          <Spinner size="md" />
+        </Center>
+      );
+    }
+
+    if (commentaries.length === 0) {
+      return (
+        <EmptyContent message="Vish! Você não possui nenhum comentário ainda!" />
+      );
+    }
+
+    return (
+      <VStack spacing={ELEMENTS_SPACING}>
+        {commentaries.map(renderCommentary)}
+      </VStack>
     );
   };
 
   return (
     <Modal header="Comentários" size="4xl" scrollBehavior="inside" {...props}>
       <Stack flexDirection="column" spacing={ELEMENTS_SPACING}>
-        <VStack spacing={ELEMENTS_SPACING}>
-          {COMMENTARIES.map(renderCommentary)}
-        </VStack>
         <Stack direction="column" spacing={ELEMENTS_SPACING}>
+          {renderCommentaries()}
           <TextInput
             bg="white"
             p={5}
             isTextarea
             placeholder="Adicionar um comentário"
             rows="10"
+            {...getFieldProperties("commentary")}
           />
-          <Button>Comentar</Button>
+          <Button onClick={onClickComment} isLoading={isLoading}>
+            Comentar
+          </Button>
         </Stack>
       </Stack>
     </Modal>

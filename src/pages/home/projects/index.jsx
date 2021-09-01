@@ -1,18 +1,13 @@
 import React from "react";
 
 import { ProjectsWidget } from "core/components";
-import { MockedData } from "core/utils";
 import { ROLES } from "core/utils/constants";
-import { useGetAllProjects, useToken } from "core/hooks";
-
-const { DATA } = MockedData;
+import { useGetAllProjects } from "core/hooks";
 
 const Projects = () => {
-  const [{ response, ...rest }] = useGetAllProjects();
+  const [{ response: projects = [], isLoading, ...rest }] = useGetAllProjects();
 
-  console.log(response);
-
-  return <ProjectsWidget projects={DATA} />;
+  return <ProjectsWidget projects={projects} isLoading={isLoading} />;
 };
 
 Projects.configs = {

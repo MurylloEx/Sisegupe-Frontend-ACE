@@ -1,8 +1,9 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, Spinner, Text, VStack } from "@chakra-ui/react";
 import React from "react";
+import EmptyContent from "../EmptyContent";
 import Project from "./Project";
 
-const ProjectsWidget = ({ projects, isAdmin = false }) => {
+const ProjectsWidget = ({ projects, isAdmin = false, isLoading }) => {
   const renderProject = (project, index, list) => {
     const isLastElement = index === list.length - 1;
 
@@ -13,6 +14,27 @@ const ProjectsWidget = ({ projects, isAdmin = false }) => {
       </React.Fragment>
     );
   };
+
+  if (isLoading) {
+    return (
+      <Flex
+        height="100vh"
+        width="100vw"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Spinner size="xl" />
+      </Flex>
+    );
+  }
+
+  if (projects.length === 0) {
+    return (
+      <Flex height="100%" flexDir="column">
+        <EmptyContent message="Vish! Sua lista de projetos está vazia" />
+      </Flex>
+    );
+  }
 
   return (
     <Flex height="100%" flexDir="column">
