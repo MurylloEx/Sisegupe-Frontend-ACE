@@ -1,9 +1,9 @@
 import { Select as ChakraSelect, Text, HStack, Stack } from "@chakra-ui/react";
 
 const Select = ({ items, defaultValue, label, ...props }) => {
-  const renderOptionElement = (value, index) => (
+  const renderOptionElement = ({ value, label }, index) => (
     <option value={value} key={index}>
-      {value}
+      {label}
     </option>
   );
 
