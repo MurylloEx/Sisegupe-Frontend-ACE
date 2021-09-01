@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { HStack, useDisclosure } from "@chakra-ui/react";
 import ForumIcon from "@material-ui/icons/Forum";
 import { useRouter } from "next/router";
@@ -17,11 +17,13 @@ import { Button } from "../Button";
 import { CloseIcon, EditIcon } from "@chakra-ui/icons";
 
 const Project = ({ project, isAdmin, ...props }) => {
-  const { id, projectStage, summary, title, authorName } = project;
+  const { id, projectStage, summary, title, author } = project;
+  const { name: authorName = "" } = author;
   const [{ name, isLogged }] = useUser();
-  const { colors } = useTheme();
-  const { isOpen, onClose, onOpen } = useDisclosure();
   const router = useRouter();
+  const { colors } = useTheme();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   const { mutate: deleteProject, isLoading } = useDeleteRequest(
     `/projects/${id}`
   );
@@ -32,7 +34,7 @@ const Project = ({ project, isAdmin, ...props }) => {
       isLoading: isLoadingCommentaries,
       isFetching,
     },
-  ] = useGetCommentaries(id);
+  ] = useGetCommentaries(id, isOpen);
 
   const onClickNavigateToProject = () => router.push(`/home/projects/${id}`);
 
@@ -49,18 +51,24 @@ const Project = ({ project, isAdmin, ...props }) => {
               }
               onClick={() => null}
             ></Button.Icon>
-            <Button
-              leftIcon={<CloseIcon fontSize="large" />}
-              bg="error"
+            <Button.Icon
+              icon={<CloseIcon fontSize="large" />}
+              style={{ color: colors.error }}
               onClick={onClickDeleteProject}
               isLoading={isLoading}
             >
               Deletar projeto
-            </Button>
+            </Button.Icon>
           </HStack>
-          <Button width="20%" onClick={onClickNavigateToProject}>
-            Saiba mais
-          </Button>
+          <HStack justify="flex-end" m={4} spacing="10">
+            <Button.Icon
+              icon={
+                <ForumIcon fontSize="large" style={{ color: colors.primary }} />
+              }
+              onClick={onOpen}
+            />
+            <Button onClick={onClickNavigateToProject}>Saiba mais</Button>
+          </HStack>
         </HStack>
       );
     }
@@ -113,8 +121,6 @@ const Project = ({ project, isAdmin, ...props }) => {
         </Card.TextBody>
       </Card>
       <CommentaryModal
-        isOpen={isOpen}
-        onClose={onClose}
         projectId={id}
         {...{
           refetch,
@@ -122,6 +128,8 @@ const Project = ({ project, isAdmin, ...props }) => {
           isFetching,
           commentaries,
           isLogged,
+          onClose,
+          isOpen,
         }}
       />
     </>

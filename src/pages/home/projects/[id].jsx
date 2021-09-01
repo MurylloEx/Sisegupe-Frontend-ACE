@@ -9,7 +9,6 @@ import { Button } from "core/components";
 import { ROLES } from "core/utils/constants";
 import { useGetAllProjects } from "core/hooks";
 
-const { DATA } = MockedData;
 const FONT_SIZE = "lg";
 
 const Project = () => {
@@ -33,16 +32,22 @@ const Project = () => {
     }
   }, [id, projects]);
 
-  const { advisorName, courseName, projectStage, summary, title, fileLink } =
-    projectDetails ?? {};
+  const {
+    advisorName,
+    courseName,
+    projectStage,
+    summary,
+    title,
+    fileDocuments,
+  } = projectDetails ?? {};
 
-  const [firstFileLink = ""] = fileLink ?? [];
-
+  const [firstDocument = {}] = fileDocuments ?? [];
+  const { fileName = "" } = firstDocument;
   if (!projectDetails) {
     <Spinner />;
   }
 
-  console.log(projectDetails);
+  console.log(fileDocuments);
 
   return (
     <Stack spacing="10">
@@ -63,8 +68,8 @@ const Project = () => {
         </Text>
       </Stack>
       <Text fontSize={FONT_SIZE}>{summary}</Text>
-      {Boolean(fileLink) && (
-        <Link href={firstFileLink} target="_blank" passHref>
+      {Boolean(fileDocuments) && (
+        <Link href={fileName} target="_blank" passHref>
           <Button.Outlined icon={(props) => <ChromeReaderMode {...props} />}>
             Ler documento do projeto
           </Button.Outlined>

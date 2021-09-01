@@ -1,5 +1,6 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
+  Alert,
   Avatar,
   Button,
   Card,
@@ -25,9 +26,16 @@ const CommentaryModal = ({
   isLogged,
   ...props
 }) => {
-  const { mutate: doCommentary, isLoading } = usePostRequest(
-    `commentaries/${projectId}`
-  );
+  const { isOpen } = props;
+
+  console.log(isOpen);
+
+  const {
+    mutate: doCommentary,
+    isLoading,
+    isError,
+    isSuccess,
+  } = usePostRequest(`commentaries/${projectId}`);
 
   const [{ fields }, { getFieldProperties, cleanUp }] = useForm(INITIAL_VALUES);
   const { commentary } = fields;
@@ -73,7 +81,31 @@ const CommentaryModal = ({
     );
   };
 
-  refetch();
+  const renderAlert = () => {
+    const error = {
+      status: "error",
+      body: "Eita! Ocorreu um erro ao gerar seu comentário. Por favor, tente novamente mais tarde!",
+    };
+
+    const success = {
+      status: "success",
+      body: "Comentário criado com sucesso! Por favor, atualize a página para ver o seu comentário.",
+    };
+
+    const buildMessage = () => {
+      return isError ? error : success;
+    };
+
+    const { status, body } = buildMessage();
+
+    return (isError || isSuccess) && <Alert status={status} message={body} />;
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      refetch();
+    }
+  }, [isOpen, refetch]);
 
   return (
     <Modal header="Comentários" size="4xl" scrollBehavior="inside" {...props}>
@@ -91,7 +123,13 @@ const CommentaryModal = ({
                 {...getFieldProperties("commentary")}
               />
 
-              <Button isLoading={isLoading} onClick={onClickComment}>
+              {renderAlert()}
+
+              <Button
+                isLoading={isLoading}
+                onClick={onClickComment}
+                isDisabled={!commentary}
+              >
                 Comentar
               </Button>
             </>

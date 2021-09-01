@@ -4,7 +4,7 @@ import usePostRequest from "../usePostRequest";
 const ENDPOINT = "/projects";
 
 const useAddProject = (
-  { title, summary, advisorName, courseName, projectStage, fileLink },
+  { title, summary, advisorName, courseName, projectStage, fileLinks },
   options = {}
 ) => {
   const {
@@ -20,9 +20,9 @@ const useAddProject = (
       advisorName,
       courseName,
       projectStage,
-      fileLink,
+      fileLinks,
     });
-  }, [doAdd, title, summary, advisorName, courseName, projectStage, fileLink]);
+  }, [doAdd, title, summary, advisorName, courseName, projectStage, fileLinks]);
 
   return [{ response: response?.data?.data, ...rest }, { addProject }];
 };

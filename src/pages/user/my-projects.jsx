@@ -12,19 +12,19 @@ const { DATA } = MockedData;
 
 const MyProjects = () => {
   const router = useRouter();
-  const [{ isLogged, name }] = useUser();
+  const [{ isLogged, id }] = useUser();
   const [{ response: projects = [], ...rest }] = useGetAllProjects();
 
   const [userProjects, setUserProjects] = useState([]);
 
   useEffect(() => {
     if (projects) {
-      setUserProjects(
-        projects.filter((project) => project.authorName === name)
-      );
+      setUserProjects(projects.filter((project) => project.author.id === id));
       return;
     }
-  }, [name, projects]);
+  }, [id, projects]);
+
+  console.log({ projects, userProjects, id });
 
   const onClickNavigateToAddProjects = () => router.push("/user/add-project");
 

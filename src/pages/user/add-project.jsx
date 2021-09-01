@@ -51,7 +51,7 @@ const AddProject = () => {
       advisorName,
       summary,
       courseName,
-      fileLink: [fileLink],
+      fileLinks: [{ fileLink }],
       projectStage,
     });
 
