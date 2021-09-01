@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import {
   Avatar,
   Button,
@@ -33,8 +33,8 @@ const CommentaryModal = ({
 
   const onClickComment = () => {
     doCommentary({ text: commentary });
-    cleanUp();
     refetch();
+    cleanUp();
   };
 
   const renderCommentary = ({ author, text, id }, _) => {
@@ -42,7 +42,7 @@ const CommentaryModal = ({
 
     return (
       <Card key={id}>
-        <HStack width={600}>
+        <HStack minWidth={400}>
           <Avatar name={name} size="md" fontSize="md" isRandomBgColor />
           <Text>{text}</Text>
         </HStack>
@@ -51,7 +51,7 @@ const CommentaryModal = ({
   };
 
   const renderCommentaries = () => {
-    if (isLoadingCommentaries || isFetching) {
+    if (isLoadingCommentaries) {
       return (
         <Center>
           <Spinner size="md" />
@@ -66,11 +66,13 @@ const CommentaryModal = ({
     }
 
     return (
-      <VStack spacing={ELEMENTS_SPACING}>
+      <VStack spacing={ELEMENTS_SPACING} alignItems="flex-start">
         {commentaries.map(renderCommentary)}
       </VStack>
     );
   };
+
+  refetch();
 
   return (
     <Modal header="Comentários" size="4xl" scrollBehavior="inside" {...props}>
@@ -85,7 +87,7 @@ const CommentaryModal = ({
             rows="10"
             {...getFieldProperties("commentary")}
           />
-          <Button onClick={onClickComment} isLoading={isLoading}>
+          <Button isLoading={isLoading} onClick={onClickComment}>
             Comentar
           </Button>
         </Stack>

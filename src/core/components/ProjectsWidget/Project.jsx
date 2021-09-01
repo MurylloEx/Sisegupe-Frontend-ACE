@@ -117,7 +117,12 @@ const Project = ({ project, isAdmin, ...props }) => {
         isOpen={isOpen}
         onClose={onClose}
         projectId={id}
-        {...{ refetch, isLoadingCommentaries, isFetching, commentaries }}
+        {...{
+          refetch,
+          isLoadingCommentaries,
+          isFetching,
+          commentaries,
+        }}
       />
     </>
   );
