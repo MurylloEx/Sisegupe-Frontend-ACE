@@ -4,8 +4,8 @@ import { ROLES } from "core/utils/constants";
 
 const PermissionGateProvider = ({ children }) => {
   const { type } = children;
-  const { configs } = type ?? {};
-  const { role } = configs;
+  const { configs = {} } = type ?? {};
+  const { role = "" } = configs ?? {};
 
   const [{ role: userRole }] = useUser();
 

@@ -61,7 +61,7 @@ const CommentaryModal = ({
 
     if (commentaries.length === 0) {
       return (
-        <EmptyContent message="Vish! Você não possui nenhum comentário ainda!" />
+        <EmptyContent message="Vish! Esse projeto ainda não possui nenhum comentário!" />
       );
     }
 
