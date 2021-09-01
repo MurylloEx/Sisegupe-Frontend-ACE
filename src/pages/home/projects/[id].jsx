@@ -35,11 +35,14 @@ const Project = () => {
 
   const { advisorName, courseName, projectStage, summary, title, fileLink } =
     projectDetails ?? {};
-  const onClickReadFile = () => {};
+
+  const [firstFileLink = ""] = fileLink ?? [];
 
   if (!projectDetails) {
     <Spinner />;
   }
+
+  console.log(projectDetails);
 
   return (
     <Stack spacing="10">
@@ -61,7 +64,7 @@ const Project = () => {
       </Stack>
       <Text fontSize={FONT_SIZE}>{summary}</Text>
       {Boolean(fileLink) && (
-        <Link href={fileLink} target="_blank" passHref>
+        <Link href={firstFileLink} target="_blank" passHref>
           <Button.Outlined icon={(props) => <ChromeReaderMode {...props} />}>
             Ler documento do projeto
           </Button.Outlined>

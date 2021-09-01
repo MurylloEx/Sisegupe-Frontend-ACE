@@ -7,9 +7,25 @@ import { Alert, Button, Select, TextInput } from "core/components";
 import { ROLES } from "core/utils/constants";
 import { useAddProject, useForm, usePostRequest } from "core/hooks";
 
-const OPTIONS_VALUES = [
+const OPTIONS_PROJECT_STAGE_VALUES = [
   { label: "Em andamento", value: 0 },
   { label: "Concluído", value: 1 },
+];
+const OPTIONS_COURSES_VALUES = [
+  { label: "Ciências Biológicas", value: "Ciências Biológicas" },
+  { label: "Computação", value: "Computação" },
+  { label: "Eng. de Software", value: "Eng. de Software" },
+  { label: "Geografia", value: "Geografia" },
+  { label: "História", value: "História" },
+  { label: "Letras", value: "Letras" },
+  { label: "Matemática", value: "Matemática" },
+  { label: "Medicina", value: "Medicina" },
+  { label: "Pedagogia", value: "Pedagogia" },
+  { label: "Administração", value: "Administração" },
+  { label: "Odontologia", value: "Odontologia" },
+  { label: "Direito", value: "Direito" },
+  { label: "Medicina", value: "Medicina" },
+  { label: "Psicologia", value: "Psicologia" },
 ];
 
 const INITIAL_VALUES = {
@@ -23,9 +39,11 @@ const INITIAL_VALUES = {
 const AddProject = () => {
   const [{ fields }, { getFieldProperties }] = useForm(INITIAL_VALUES);
   const [projectStage, setProjectStage] = useState(0);
+  const [courseName, setCourseName] = useState("");
+
   const [isShowingFileLinkInput, setIsShowingFileLinkInput] = useState(false);
 
-  const { title, summary, advisorName, courseName, fileLink } = fields;
+  const { title, summary, advisorName, fileLink } = fields;
 
   const [{ response, isLoading, isSuccess, isError }, { addProject }] =
     useAddProject({
@@ -33,7 +51,7 @@ const AddProject = () => {
       advisorName,
       summary,
       courseName,
-      fileLink,
+      fileLink: [fileLink],
       projectStage,
     });
 
@@ -96,18 +114,16 @@ const AddProject = () => {
         rows="10"
         {...getFieldProperties("summary")}
       />
-      <TextInput
-        variant="outline"
-        borderWidth={3}
-        p={5}
+      <Select
         label="Curso"
-        placeholder="Digite o curso que você realizou na UPE."
-        {...getFieldProperties("courseName")}
+        placeholder="Selecione o seu curso."
+        items={OPTIONS_COURSES_VALUES}
+        onChange={(event) => setCourseName(event.target.value)}
       />
       <Select
         label="Status"
         placeholder="Selecione o status do seu projeto."
-        items={OPTIONS_VALUES}
+        items={OPTIONS_PROJECT_STAGE_VALUES}
         onChange={(event) => setProjectStage(event.target.value)}
       />
       {!isShowingFileLinkInput ? (

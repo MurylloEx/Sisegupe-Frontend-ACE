@@ -23,12 +23,11 @@ const Project = ({ project, isAdmin, ...props }) => {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const router = useRouter();
   const { mutate: deleteProject, isLoading } = useDeleteRequest(
-    `/projects/${id}`,
-    {}
+    `/projects/${id}`
   );
   const [
     {
-      response: commentaries,
+      response: commentaries = [],
       refetch,
       isLoading: isLoadingCommentaries,
       isFetching,

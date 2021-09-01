@@ -30,7 +30,12 @@ const ProjectsWidget = ({ projects, isAdmin = false, isLoading }) => {
 
   if (projects.length === 0) {
     return (
-      <Flex height="100%" flexDir="column">
+      <Flex
+        height="100%"
+        width="100%"
+        alignItems="center"
+        justifyContent="center"
+      >
         <EmptyContent message="Vish! Sua lista de projetos está vazia" />
       </Flex>
     );
