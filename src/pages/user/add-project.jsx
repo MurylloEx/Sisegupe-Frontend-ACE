@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Stack } from "@chakra-ui/react";
+import { Stack, Text } from "@chakra-ui/react";
 import DescriptionIcon from "@material-ui/icons/Description";
 
 import { Alert, Button, Select, TextInput } from "core/components";
@@ -88,14 +88,9 @@ const AddProject = () => {
 
   return (
     <Stack direction="column" spacing="10">
-      <TextInput
-        variant="outline"
-        borderWidth={3}
-        p={5}
-        label="Nome(s)"
-        placeholder="Digite aqui os nomes dos integrantes do projeto. Separados por vírgulas."
-        {...getFieldProperties("advisorName")}
-      />
+      <Text fontSize="3xl" fontWeight="bold">
+        Adicionar projeto
+      </Text>
       <TextInput
         variant="outline"
         borderWidth={3}
@@ -103,6 +98,14 @@ const AddProject = () => {
         label="Título"
         placeholder="Digite aqui o título do seu projeto."
         {...getFieldProperties("title")}
+      />
+      <TextInput
+        variant="outline"
+        borderWidth={3}
+        p={5}
+        label="Nome(s)"
+        placeholder="Digite aqui os nomes dos integrantes do projeto. Separados por vírgulas."
+        {...getFieldProperties("advisorName")}
       />
       <TextInput
         variant="outline"
