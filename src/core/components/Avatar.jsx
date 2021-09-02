@@ -14,7 +14,9 @@ const Avatar = ({ name, fontSize, size = "2xl", isRandomBgColor }) => {
   return (
     <VStack width="50%">
       <ChakraAvatar name={name} size={size} bg={bg} color={colors.white} />
-      <Text fontSize={fontSize ?? "2xl"}>{name}</Text>
+      <Text fontSize={fontSize ?? "2xl"} textAlign="center">
+        {name}
+      </Text>
     </VStack>
   );
 };

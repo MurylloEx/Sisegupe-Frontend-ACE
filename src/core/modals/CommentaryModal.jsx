@@ -89,7 +89,7 @@ const CommentaryModal = ({
 
     const success = {
       status: "success",
-      body: "Comentário criado com sucesso! Por favor, atualize a página para ver o seu comentário.",
+      body: "Comentário criado com sucesso!",
     };
 
     const buildMessage = () => {
