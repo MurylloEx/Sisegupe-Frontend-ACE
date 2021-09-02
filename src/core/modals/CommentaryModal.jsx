@@ -28,8 +28,6 @@ const CommentaryModal = ({
 }) => {
   const { isOpen } = props;
 
-  console.log(isOpen);
-
   const {
     mutate: doCommentary,
     isLoading,

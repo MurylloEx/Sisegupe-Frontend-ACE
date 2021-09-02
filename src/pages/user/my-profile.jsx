@@ -76,8 +76,6 @@ const MyProfile = () => {
   if (!isLogged) {
     return <Loading />;
   }
-  console.log(response);
-
   return (
     <Stack height="100%" direction="column" spacing="20" pt="20">
       <Stack spacing="10">

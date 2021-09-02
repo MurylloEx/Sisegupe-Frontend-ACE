@@ -83,9 +83,6 @@ const AddProject = () => {
     return (isSuccess || isError) && <Alert status={status} message={body} />;
   };
 
-  console.log({ fields: { ...fields, projectStage } });
-  console.log({ response });
-
   return (
     <Stack direction="column" spacing="10">
       <Text fontSize="3xl" fontWeight="bold">

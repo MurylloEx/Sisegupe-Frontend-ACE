@@ -24,8 +24,6 @@ const MyProjects = () => {
     }
   }, [id, projects]);
 
-  console.log({ projects, userProjects, id });
-
   const onClickNavigateToAddProjects = () => router.push("/user/add-project");
 
   if (!isLogged) {
