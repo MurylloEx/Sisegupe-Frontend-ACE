@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { HStack, useDisclosure } from "@chakra-ui/react";
+import { HStack, Icon, Text, useDisclosure } from "@chakra-ui/react";
 import ForumIcon from "@material-ui/icons/Forum";
 import { useRouter } from "next/router";
 
@@ -16,6 +16,7 @@ import { Tag } from "../Tag";
 import { Button } from "../Button";
 import { CloseIcon, EditIcon } from "@chakra-ui/icons";
 import Info from "../Info";
+import { Person } from "@material-ui/icons";
 
 const Project = ({ project, isAdmin, isOnMyProjects = false, ...props }) => {
   const { id, projectStage, summary, title, author } = project;
@@ -38,7 +39,14 @@ const Project = ({ project, isAdmin, isOnMyProjects = false, ...props }) => {
       isLoading: isLoadingCommentaries,
       isFetching,
     },
-  ] = useGetCommentaries(id, isOpen);
+  ] = useGetCommentaries(
+    id,
+    isOpen,
+    {},
+    {
+      onSuccuss: () => router.reload(),
+    }
+  );
 
   const onClickNavigateToProject = () => router.push(`/home/projects/${id}`);
 
@@ -110,7 +118,14 @@ const Project = ({ project, isAdmin, isOnMyProjects = false, ...props }) => {
               bold
             >
               {title}
+              <HStack pt="4">
+                <Person />
+                <Text fontSize={12} textAlign="left" color="grayMedium">
+                  {authorName}{" "}
+                </Text>
+              </HStack>
             </Card.TextHeader>
+
             {!isAdmin && <Tag tagType={projectStage} />}
           </HStack>
         )}

@@ -76,23 +76,16 @@ const Project = () => {
     isLoading,
     isSuccess,
     isError,
-  } = usePutRequest(`projects/${id}`, {
-    title: actualTitle,
-    advisorName: actualAdvisorName,
-    summary: actualSummary,
-    courseName: actualCourseName,
-    fileLinks: [{ fileLink: actualFileLink }],
-    projectStage: actualProjectStage,
-  });
+  } = usePutRequest(`projects/${id}`);
 
   const onClickCreateProject = () => {
     editProject({
-      title,
-      advisorName,
-      summary,
-      courseName,
-      fileLinks: [{ fileLink }],
-      projectStage,
+      title: actualTitle,
+      advisorName: actualAdvisorName,
+      summary: actualSummary,
+      courseName: actualCourseName,
+      fileLinks: [{ fileLink: actualFileLink }],
+      projectStage: actualProjectStage,
     });
   };
 

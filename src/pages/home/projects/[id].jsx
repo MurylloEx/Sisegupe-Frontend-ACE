@@ -71,7 +71,7 @@ const Project = () => {
         </Text>
       </Stack>
       <Text fontSize={FONT_SIZE}>{summary}</Text>
-      {Boolean(fileDocuments) && (
+      {Boolean(fileName) && (
         <Link href={fileName} target="_blank" passHref>
           <Button.Outlined icon={(props) => <ChromeReaderMode {...props} />}>
             Ler documento do projeto

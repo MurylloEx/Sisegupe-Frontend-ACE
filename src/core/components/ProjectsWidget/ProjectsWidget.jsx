@@ -28,7 +28,7 @@ const ProjectsWidget = ({
     return (
       <Flex
         height="100vh"
-        width="100vw"
+        width={isOnMyProjects ? "60vw" : "95vw"}
         alignItems="center"
         justifyContent="center"
       >

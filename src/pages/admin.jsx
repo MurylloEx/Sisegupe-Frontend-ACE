@@ -1,19 +1,26 @@
 import React from "react";
 
 import { ProjectsWidget } from "core/components";
-import { MockedData } from "core/utils";
 import { ROLES } from "core/utils/constants";
 import { Text } from "@chakra-ui/react";
-
-const { DATA } = MockedData;
+import { useGetAllProjects } from "core/hooks";
 
 const AdminPage = () => {
+  const [{ response: projects = [], isLoading, ...rest }] = useGetAllProjects();
+
   return (
     <>
-      <Text fontSize="2xl" mb="8" fontWeight="bold">
-        Lista de projetos para serem validados
-      </Text>
-      <ProjectsWidget projects={DATA} isAdmin />
+      {Boolean(projects.length > 0) && (
+        <Text fontSize="2xl" mb="8" fontWeight="bold">
+          Página do gestor
+        </Text>
+      )}
+      <ProjectsWidget
+        projects={projects}
+        isAdmin
+        isOnMyProjects
+        isLoading={isLoading && Boolean(projects.length === 0)}
+      />
     </>
   );
 };

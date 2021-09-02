@@ -150,7 +150,12 @@ const AddProject = () => {
 
       {renderAlert()}
 
-      <Button bg="success" onClick={onClickCreateProject} isLoading={isLoading}>
+      <Button
+        bg="success"
+        onClick={onClickCreateProject}
+        isLoading={isLoading}
+        disabled={isSuccess}
+      >
         Confirmar projeto
       </Button>
     </Stack>

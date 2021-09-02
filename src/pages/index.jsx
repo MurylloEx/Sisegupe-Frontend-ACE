@@ -63,7 +63,7 @@ const HomePage = () => {
               </Card>
             </Stack>
           </GridItem>
-          <GridItem>
+          <GridItem mx="10">
             <Carousel.Charts />
           </GridItem>
         </Grid>

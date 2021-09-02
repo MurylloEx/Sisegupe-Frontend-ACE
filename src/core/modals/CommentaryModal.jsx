@@ -101,11 +101,9 @@ const CommentaryModal = ({
     return (isError || isSuccess) && <Alert status={status} message={body} />;
   };
 
-  useEffect(() => {
-    if (isOpen) {
-      refetch();
-    }
-  }, [isOpen, refetch]);
+  if (isOpen) {
+    refetch();
+  }
 
   return (
     <Modal header="Comentários" size="4xl" scrollBehavior="inside" {...props}>
