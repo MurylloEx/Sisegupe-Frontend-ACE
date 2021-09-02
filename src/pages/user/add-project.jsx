@@ -131,7 +131,7 @@ const AddProject = () => {
           icon={(props) => <DescriptionIcon {...props} />}
           onClick={onClickShowingFileLinkInput}
         >
-          Adicionar arquivo
+          Adicionar link de acesso para o documento
         </Button.Outlined>
       ) : (
         <TextInput

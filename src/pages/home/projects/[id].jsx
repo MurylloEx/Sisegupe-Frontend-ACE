@@ -74,7 +74,7 @@ const Project = () => {
       {Boolean(fileName) && (
         <Link href={fileName} target="_blank" passHref>
           <Button.Outlined icon={(props) => <ChromeReaderMode {...props} />}>
-            Ler documento do projeto
+            Link de acesso para o documento
           </Button.Outlined>
         </Link>
       )}
