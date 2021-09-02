@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { HStack, Icon, Text, useDisclosure } from "@chakra-ui/react";
+import { Box, HStack, Icon, Text, useDisclosure } from "@chakra-ui/react";
 import ForumIcon from "@material-ui/icons/Forum";
 import { useRouter } from "next/router";
 
@@ -108,7 +108,7 @@ const Project = ({ project, isAdmin, isOnMyProjects = false, ...props }) => {
         maxWidth={isOnMyProjects ? "60vw" : "95vw"}
         width={isOnMyProjects ? "60vw" : "95vw"}
         header={() => (
-          <HStack justify="space-between" px={4}>
+          <HStack justify="space-between" align="baseline" px={4}>
             <Card.TextHeader
               fontColor="primary"
               textAlign="left"
@@ -117,10 +117,11 @@ const Project = ({ project, isAdmin, isOnMyProjects = false, ...props }) => {
               px={0}
               isTruncated
               noOfLines={1}
+              flex={1}
               bold
             >
               {title}
-              <HStack pt="4">
+              <HStack>
                 <Person />
                 <Text fontSize={12} textAlign="left" color="grayMedium">
                   {authorName}{" "}
@@ -128,7 +129,7 @@ const Project = ({ project, isAdmin, isOnMyProjects = false, ...props }) => {
               </HStack>
             </Card.TextHeader>
 
-            {!isAdmin && <Tag tagType={projectStage} />}
+            {!isAdmin && <Tag fontSize={15} tagType={projectStage} />}
           </HStack>
         )}
         footer={renderFooter}
