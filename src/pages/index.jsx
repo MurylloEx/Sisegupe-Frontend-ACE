@@ -1,12 +1,22 @@
 import React from "react";
-import { Grid, GridItem, Flex, Stack } from "@chakra-ui/react";
+import { Grid, GridItem, Flex, Stack, Spinner } from "@chakra-ui/react";
 
 import { Carousel, Card } from "core/components";
 import { ROLES } from "core/utils/constants";
+import { useGetRequest } from "core/hooks";
 
 const CARD_HEADER_DEFAULT = 40;
 
 const HomePage = () => {
+  const { data: response } = useGetRequest("/graphics/projects");
+  const { data } = response ?? {};
+  const { data: projectsInfos } = data ?? {};
+  const { AllProjects, InProgress, Finished } = projectsInfos ?? {};
+
+  const Loading = () => {
+    return <Spinner size="md" />;
+  };
+
   return (
     <Grid templateRows="0.5fr 2fr">
       <GridItem>
@@ -27,7 +37,7 @@ const HomePage = () => {
                 mb={4}
                 height={CARD_HEADER_DEFAULT}
               >
-                <Card.TextBody> 232 </Card.TextBody>
+                <Card.TextBody> {AllProjects ?? <Loading />} </Card.TextBody>
               </Card>
               <Card
                 header={() => (
@@ -38,7 +48,7 @@ const HomePage = () => {
                 mb={4}
                 height={CARD_HEADER_DEFAULT}
               >
-                <Card.TextBody> 92 </Card.TextBody>
+                <Card.TextBody> {InProgress ?? <Loading />} </Card.TextBody>
               </Card>
               <Card
                 header={() => (
@@ -49,7 +59,7 @@ const HomePage = () => {
                 mb={4}
                 height={CARD_HEADER_DEFAULT}
               >
-                <Card.TextBody> 140 </Card.TextBody>
+                <Card.TextBody> {Finished ?? <Loading />} </Card.TextBody>
               </Card>
             </Stack>
           </GridItem>
