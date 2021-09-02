@@ -14,9 +14,9 @@ import { CommentaryModal } from "core/modals";
 import { Card } from "../Card";
 import { Tag } from "../Tag";
 import { Button } from "../Button";
-import { CloseIcon, EditIcon } from "@chakra-ui/icons";
+import { EditIcon } from "@chakra-ui/icons";
 import Info from "../Info";
-import { Person } from "@material-ui/icons";
+import { Person, DeleteOutline } from "@material-ui/icons";
 
 const Project = ({ project, isAdmin, isOnMyProjects = false, ...props }) => {
   const { id, projectStage, summary, title, author } = project;
@@ -65,13 +65,11 @@ const Project = ({ project, isAdmin, isOnMyProjects = false, ...props }) => {
               }
             ></Button.Icon>
             <Button.Icon
-              icon={<CloseIcon fontSize="large" />}
+              icon={<DeleteOutline fontSize="default" />}
               style={{ color: colors.error }}
               onClick={onClickDeleteProject}
               isLoading={isLoading}
-            >
-              Deletar projeto
-            </Button.Icon>
+            />
           </HStack>
           <HStack justify="flex-end" m={4} spacing="10">
             <Button.Icon
