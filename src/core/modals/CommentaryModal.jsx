@@ -99,7 +99,7 @@ const CommentaryModal = ({
     return (isError || isSuccess) && <Alert status={status} message={body} />;
   };
 
-  if (isOpen && commentary === "") {
+  if (isOpen) {
     refetch();
   }
 
