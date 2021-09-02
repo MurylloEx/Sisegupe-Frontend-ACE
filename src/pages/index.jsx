@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, GridItem, Flex, Stack, Spinner } from "@chakra-ui/react";
+import { Grid, GridItem, Flex, Stack, Spinner, Text } from "@chakra-ui/react";
 
 import { Carousel, Card } from "core/components";
 import { ROLES } from "core/utils/constants";
@@ -21,6 +21,9 @@ const HomePage = () => {
     <Grid templateRows="0.5fr 2fr">
       <GridItem>
         <Flex flex={1} flexDirection="column" justifyItems="center">
+          <Text fontSize="3xl" fontWeight="bold" mb="4">
+            Notícias em destaque
+          </Text>
           <Carousel.News height="200" />
         </Flex>
       </GridItem>

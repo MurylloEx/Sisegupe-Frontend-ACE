@@ -40,10 +40,11 @@ const UserWidget = ({ userName }) => {
                   O que é o SISEGUPE?
                 </Text>
                 <Text>
-                  O Sisegupe é um observatório que congrega os projetos
-                  desenvolvidos pelos alunos egressos da UPE Campus Garanhuns,
-                  oferecendo publicidade e servindo de vitrine para os egressos
-                  e seus respectivos projetos.
+                  O <b>Sisegupe (Sistema de Egressos da UPE)</b> é um
+                  observatório que congrega os projetos desenvolvidos pelos
+                  alunos egressos da UPE Campus Garanhuns, oferecendo
+                  publicidade e servindo de vitrine para os egressos e seus
+                  respectivos projetos.
                 </Text>
               </Stack>
             </Stack>

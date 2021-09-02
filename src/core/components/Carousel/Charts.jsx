@@ -22,9 +22,9 @@ const COURSES = [
   "Psicologia",
 ];
 const TITLE = [
-  "Projetos por curso",
-  "Projetos em andamento",
-  "Projetos concluídos",
+  "Quantidade de projetos por curso",
+  "Quantidade de projetos em andamento",
+  "Quantidade de projetos concluídos",
 ];
 
 const getData = (infos) => ({
@@ -87,9 +87,9 @@ const Slide = ({ title, ...props }) => {
   const chartInfos = response?.data?.data ?? [];
 
   const returnTitle = {
-    ["Projetos por curso"]: "AllProjects",
-    ["Projetos em andamento"]: "InProgress",
-    ["Projetos concluídos"]: "Finished",
+    ["Quantidade de projetos por curso"]: "AllProjects",
+    ["Quantidade de projetos em andamento"]: "InProgress",
+    ["Quantidade de projetos concluídos"]: "Finished",
   }[title];
 
   const dataFiltered = chartInfos.map(
@@ -117,7 +117,7 @@ const Slide = ({ title, ...props }) => {
             padding={4}
             bg={colors.background}
             bold
-            fontSize={30}
+            fontSize={25}
             fontColor={colors.grayStrong}
             textAlign="center"
           >
