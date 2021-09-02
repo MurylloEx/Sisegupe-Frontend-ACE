@@ -9,7 +9,7 @@ import {
   TextInput,
 } from "core/components";
 import { Center, Stack, Spinner, Text, VStack, HStack } from "@chakra-ui/react";
-import { useForm, useGetCommentaries, usePostRequest } from "core/hooks";
+import { useForm, usePostRequest } from "core/hooks";
 
 const ELEMENTS_SPACING = "6";
 
@@ -99,7 +99,7 @@ const CommentaryModal = ({
     return (isError || isSuccess) && <Alert status={status} message={body} />;
   };
 
-  if (isOpen) {
+  if (isOpen && commentary === "") {
     refetch();
   }
 
@@ -115,8 +115,15 @@ const CommentaryModal = ({
                 p={5}
                 isTextarea
                 placeholder="Adicionar um comentário"
-                rows="10"
+                rows="3"
                 {...getFieldProperties("commentary")}
+                onKeyPress={(event) => {
+                  if (event.key === "Enter") {
+                    onClickComment();
+                    return;
+                  }
+                  return;
+                }}
               />
 
               {renderAlert()}
