@@ -33,7 +33,7 @@ const UserWidget = ({ userName }) => {
           >
             <Stack spacing="18">
               <Text fontSize="3xl" fontWeight="bold">
-                Seja bem vindo(a) ao SISEGUPE!
+                Seja bem-vindo(a) ao SISEGUPE!
               </Text>
               <Stack>
                 <Text fontSize="2xl" color="grayMedium" fontWeight="bold">
