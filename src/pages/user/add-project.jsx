@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Stack, Text } from "@chakra-ui/react";
 import DescriptionIcon from "@material-ui/icons/Description";
 
 import { Alert, Button, Select, TextInput } from "core/components";
 
 import { ROLES } from "core/utils/constants";
-import { useAddProject, useForm, usePostRequest } from "core/hooks";
+import { useAddProject, useForm } from "core/hooks";
 
 const OPTIONS_PROJECT_STAGE_VALUES = [
   { label: "Em andamento", value: 0 },

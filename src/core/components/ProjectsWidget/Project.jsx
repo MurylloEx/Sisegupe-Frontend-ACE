@@ -43,6 +43,7 @@ const Project = ({ project, isAdmin, isOnMyProjects = false, ...props }) => {
   const onClickNavigateToProject = () => router.push(`/home/projects/${id}`);
 
   const onClickDeleteProject = () => deleteProject();
+  const onClickGoToEditProject = () => router.push(`/home/projects/edit/${id}`);
 
   const renderFooter = () => {
     if (isAdmin || authorName === name) {
@@ -50,10 +51,10 @@ const Project = ({ project, isAdmin, isOnMyProjects = false, ...props }) => {
         <HStack justify="space-between" m={4} spacing="10">
           <HStack>
             <Button.Icon
+              onClick={onClickGoToEditProject}
               icon={
                 <EditIcon fontSize="large" style={{ color: colors.success }} />
               }
-              onClick={() => null}
             ></Button.Icon>
             <Button.Icon
               icon={<CloseIcon fontSize="large" />}
