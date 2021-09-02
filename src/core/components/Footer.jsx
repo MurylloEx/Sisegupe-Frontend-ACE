@@ -27,7 +27,10 @@ const Footer = () => {
         </Text>
         <Text fontSize="10">
           Baseado no Modelo para Observatório de Projetos.{" "}
-          <Link href="https://sol.sbc.org.br/index.php/cbsoft_estendido/article/download/7654/7531/">
+          <Link
+            href="https://sol.sbc.org.br/index.php/cbsoft_estendido/article/download/7654/7531/"
+            target="_blank"
+          >
             GP2, Cin-UFPE
           </Link>
         </Text>
