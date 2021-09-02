@@ -115,6 +115,8 @@ const Project = ({ project, isAdmin, isOnMyProjects = false, ...props }) => {
               fontSize="22"
               py={2}
               px={0}
+              isTruncated
+              noOfLines={1}
               bold
             >
               {title}
