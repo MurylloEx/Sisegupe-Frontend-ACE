@@ -43,9 +43,7 @@
 <p align="center">
    <img src="./.github/screenshots/home-1.png" />
 </p>
-<p align="center">
-   <img src="./.github/screenshots/home-2.png" />
-</p>
+
 <p align="center">
    <img src="./.github/screenshots/projects-1.png" />
 </p>
@@ -68,9 +66,10 @@ Este projeto foi feito utilizando as seguintes tecnologias:
 - [Telas do protótipo](https://www.figma.com/file/9sv1E3Ni1IEJbIUGKpKptb/ACE-IV?node-id=0%3A1) (Figma)
 - [Documento de Requisitos](https://docs.google.com/document/d/1qIx8YwccQ5LlimZONoryeNX2JD2nnLVM/edit?usp=sharing&ouid=105969994372846157930&rtpof=true&sd=true)
 
-# :construction_worker: Site [EM DESENVOLVIMENTO]
+# :construction_worker: Site
 
 Acesse o [Sisegupe]().
+
 # :bug: Issues (Problemas)
 
 Sinta-se à vontade para **registrar um novo problema** com um título e descrição respectivos no repositório [Sisegupe](https://github.com/MurylloEx/Sisegupe/issues).
