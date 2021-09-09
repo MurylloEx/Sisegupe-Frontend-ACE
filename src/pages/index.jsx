@@ -21,7 +21,7 @@ const HomePage = () => {
     <Grid templateRows="0.5fr 2fr">
       <GridItem>
         <Flex flex={1} flexDirection="column" justifyItems="center">
-          <Text fontSize="3xl" fontWeight="bold" mb="4">
+          <Text align="center" fontSize="3xl" fontWeight="bold" mb="4">
             Notícias em destaque
           </Text>
           <Carousel.News height="200" />

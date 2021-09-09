@@ -39,7 +39,7 @@ const UserWidget = ({ userName }) => {
                 <Text fontSize="2xl" color="grayMedium" fontWeight="bold">
                   O que é o SISEGUPE?
                 </Text>
-                <Text>
+                <Text textAlign="justify">
                   O <b>Sisegupe (Sistema de Egressos da UPE)</b> é um
                   observatório que congrega os projetos desenvolvidos pelos
                   alunos egressos da UPE Campus Garanhuns, oferecendo
