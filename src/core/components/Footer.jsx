@@ -9,7 +9,7 @@ const Footer = () => {
       as="footer"
       role="contentinfo"
       mx="auto"
-      py="12"
+      py="6"
       px={{ base: "4", md: "8" }}
     >
       <Stack>

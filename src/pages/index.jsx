@@ -27,7 +27,7 @@ const HomePage = () => {
           <Carousel.News height="200" />
         </Flex>
       </GridItem>
-      <GridItem>
+      <GridItem py="2">
         <HStack>
           <Card
             header={() => (
