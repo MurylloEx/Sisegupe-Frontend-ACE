@@ -133,7 +133,7 @@ const ChartsCarousel = (props) => {
 
   return (
     <Carousel
-      height={300}
+      height={350}
       slides={slides}
       {...props}
       backButtonIcon={({ tintColor }) => (
