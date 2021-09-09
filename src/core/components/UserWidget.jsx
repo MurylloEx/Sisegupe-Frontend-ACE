@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { GridItem, Flex, Box, Text, Stack } from "@chakra-ui/react";
+import { GridItem, Flex, Box, Text, Stack, Spacer } from "@chakra-ui/react";
 import Link from "next/link";
 import { useTheme } from "core/hooks";
 import { Button } from "core/components";
@@ -47,20 +47,21 @@ const UserWidget = ({ userName }) => {
                   respectivos projetos.
                 </Text>
               </Stack>
+              <Spacer height="1.75rem"/>
+              <Stack spacing="6">
+                <Stack spacing="4">
+                  <Text color="grayMedium">Já possui uma conta?</Text>
+                  <Button bg="success" onClick={onOpenLoginModal}>
+                    Realizar login
+                  </Button>
+                </Stack>
+                <Stack spacing="4">
+                  <Text color="grayMedium">Ainda não possui uma conta?</Text>
+                  <Button onClick={onOpenSignUpModal}>Criar conta</Button>
+                </Stack>
+              </Stack>
             </Stack>
 
-            <Stack spacing="6">
-              <Stack spacing="4">
-                <Text color="grayMedium">Já possui uma conta?</Text>
-                <Button bg="success" onClick={onOpenLoginModal}>
-                  Realizar login
-                </Button>
-              </Stack>
-              <Stack spacing="4">
-                <Text color="grayMedium">Ainda não possui uma conta?</Text>
-                <Button onClick={onOpenSignUpModal}>Criar conta</Button>
-              </Stack>
-            </Stack>
           </Stack>
         </GridItem>
         <LoginModal isOpen={isOpenLoginModal} onClose={onCloseLoginModal} />

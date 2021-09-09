@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { useGetRequest, usePostRequest, useTheme } from "core/hooks";
+import { usePostRequest, useTheme } from "core/hooks";
 import { Doughnut } from "react-chartjs-2";
 
 import Card from "../Card/Card";
@@ -74,7 +74,6 @@ const getData = (infos) => ({
  * 3: Distribuição dos projetos concluídos
  */
 
-const HEIGHT = 400;
 
 const Slide = ({ title, ...props }) => {
   const { colors } = useTheme();
@@ -109,7 +108,6 @@ const Slide = ({ title, ...props }) => {
   return (
     <Carousel.Item {...props}>
       <Card
-        height={HEIGHT}
         bg={colors.background}
         boxShadow={null}
         header={() => (
@@ -119,14 +117,12 @@ const Slide = ({ title, ...props }) => {
             bold
             fontSize={25}
             fontColor={colors.grayStrong}
-            textAlign="center"
-          >
+            textAlign="center">
             {title}
           </Card.TextHeader>
         )}
-        mx={4}
-      >
-        <Doughnut data={data} />
+        mx={4}>
+        <Doughnut data={data} width={"100%"} height="300px" options={{ maintainAspectRatio: false }}/>
       </Card>
     </Carousel.Item>
   );
@@ -137,7 +133,7 @@ const ChartsCarousel = (props) => {
 
   return (
     <Carousel
-      height={HEIGHT}
+      height={300}
       slides={slides}
       {...props}
       backButtonIcon={({ tintColor }) => (

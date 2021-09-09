@@ -16,8 +16,8 @@ const Card = ({
   const { colors } = useTheme();
 
   return (
-    <Stack>
-      <Box bg={bg ?? colors.white} boxShadow="lg" rounded="md" {...props}>
+    <Stack width="100%">
+      <Box bg={bg ?? colors.white} boxShadow="lg" rounded="md" {...props} width="100%">
         <Box height="20%">{header()}</Box>
         <Box minHeight="32" p={4}>
           {children}

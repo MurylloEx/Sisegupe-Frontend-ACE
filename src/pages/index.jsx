@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, GridItem, Flex, Stack, Spinner, Text } from "@chakra-ui/react";
+import { Grid, GridItem, Flex, HStack, Spinner, Text, Box } from "@chakra-ui/react";
 
 import { Carousel, Card } from "core/components";
 import { ROLES } from "core/utils/constants";
@@ -28,48 +28,41 @@ const HomePage = () => {
         </Flex>
       </GridItem>
       <GridItem>
-        <Grid templateColumns="1fr 2fr">
-          <GridItem>
-            <Stack>
-              <Card
-                header={() => (
-                  <Card.TextHeader fontColor="grayMedium" bold>
-                    Todos
-                  </Card.TextHeader>
-                )}
-                mb={4}
-                height={CARD_HEADER_DEFAULT}
-              >
-                <Card.TextBody> {AllProjects ?? <Loading />} </Card.TextBody>
-              </Card>
-              <Card
-                header={() => (
-                  <Card.TextHeader fontColor="grayMedium" bold>
-                    Em andamento
-                  </Card.TextHeader>
-                )}
-                mb={4}
-                height={CARD_HEADER_DEFAULT}
-              >
-                <Card.TextBody> {InProgress ?? <Loading />} </Card.TextBody>
-              </Card>
-              <Card
-                header={() => (
-                  <Card.TextHeader fontColor="grayMedium" bold>
-                    Concluídos
-                  </Card.TextHeader>
-                )}
-                mb={4}
-                height={CARD_HEADER_DEFAULT}
-              >
-                <Card.TextBody> {Finished ?? <Loading />} </Card.TextBody>
-              </Card>
-            </Stack>
-          </GridItem>
-          <GridItem mx="10">
-            <Carousel.Charts />
-          </GridItem>
-        </Grid>
+        <HStack>
+          <Card
+            header={() => (
+              <Card.TextHeader fontColor="grayMedium" bold>
+                Todos
+              </Card.TextHeader>
+            )}
+            mb={4}
+            height={CARD_HEADER_DEFAULT}>
+            <Card.TextBody> {AllProjects ?? <Loading />} </Card.TextBody>
+          </Card>
+          <Card
+            header={() => (
+              <Card.TextHeader fontColor="grayMedium" bold>
+                Em andamento
+              </Card.TextHeader>
+            )}
+            mb={4}
+            height={CARD_HEADER_DEFAULT}>
+            <Card.TextBody> {InProgress ?? <Loading />} </Card.TextBody>
+          </Card>
+          <Card
+            header={() => (
+              <Card.TextHeader fontColor="grayMedium" bold>
+                Concluídos
+              </Card.TextHeader>
+            )}
+            mb={4}
+            height={CARD_HEADER_DEFAULT}>
+            <Card.TextBody> {Finished ?? <Loading />} </Card.TextBody>
+          </Card>
+        </HStack>
+        <Box>
+          <Carousel.Charts />
+        </Box>
       </GridItem>
     </Grid>
   );
