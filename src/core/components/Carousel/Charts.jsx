@@ -21,7 +21,7 @@ const COURSES = [
   "Medicina",
   "Psicologia",
 ];
-const TITLE = [
+const TITLES = [
   "Quantidade de projetos por curso",
   "Quantidade de projetos em andamento",
   "Quantidade de projetos concluídos",
@@ -68,13 +68,6 @@ const getData = (infos) => ({
   ],
 });
 
-/**
- * 1: Distribuição dos projetos por curso
- * 2: Distribuição dos projetos em andamento por curso
- * 3: Distribuição dos projetos concluídos
- */
-
-
 const Slide = ({ title, ...props }) => {
   const { colors } = useTheme();
   const {
@@ -117,19 +110,26 @@ const Slide = ({ title, ...props }) => {
             bold
             fontSize={25}
             fontColor={colors.grayStrong}
-            textAlign="center">
+            textAlign="center"
+          >
             {title}
           </Card.TextHeader>
         )}
-        mx={4}>
-        <Doughnut data={data} width={"100%"} height="300px" options={{ maintainAspectRatio: false }}/>
+        mx={4}
+      >
+        <Doughnut
+          data={data}
+          width={"100%"}
+          height="300px"
+          options={{ maintainAspectRatio: false }}
+        />
       </Card>
     </Carousel.Item>
   );
 };
 
 const ChartsCarousel = (props) => {
-  const slides = TITLE.map((title, i) => <Slide title={title} key={`${i}`} />);
+  const slides = TITLES.map((title, i) => <Slide title={title} key={`${i}`} />);
 
   return (
     <Carousel
